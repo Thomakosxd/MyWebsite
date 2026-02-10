@@ -7,7 +7,7 @@ function goToTomExpensive() {
 }
 
 function goToMcLeader() {
-    window.open("http://www.thomakosmc.eu/", "_blank");
+    window.open("https://mcleader.thomasts.site", "_blank");
 }
 
 function goToDiscord() {
