@@ -1,228 +1,138 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thomas</title>
-  <link rel="icon" href="img/logo.png"/>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thomas | Develope</title>
+    <link rel="icon" href="img/logo.png"/>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Main Logo"></a></div>
-    <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="about/">About</a></li>
-      <li><a href="contact/">Contact</a></li>
-    </ul>
-  </nav>
 
-  <section class="hero">
-    <h1>THOMAS</h1>
-    <div class="typing-container">
-      <span id="typing-text"></span>
-      <span class="cursor">|</span>
-    </div>
-  </section>
+    <nav>
+        <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact-me">Contact</a></li>
+        </ul>
+    </nav>
 
-  <div class="center-box">
-      <div class="skills-section">
-          <h1 class="glow-title">MY SKILLS</h1>
-          <div class="skills-container">
+    <section class="hero" id="home">
+        <h1>THOMAS</h1>
+        <div class="typing-container">
+            <span id="typing-text"></span><span class="cursor">|</span>
+        </div>
+    </section>
 
-              <div class="skill-item">
-                <i class="devicon-python-plain colored"></i>
-                <span>Python</span>
-                <div class="skill-progress-wrapper">
-                    <div class="skill-bar">
-                        <div class="skill-percentage" style="width: 85%;"></div>
+    <main class="container" id="about">
+        <div class="bento-grid">
+            
+            <div class="bento-item item-large">
+                <div class="profile-header">
+                    <img src="img/logo.png" alt="Thomas">
+                    <div>
+                        <h2>Thomas</h2>
+                        <p>High School Student & Coder</p>
                     </div>
-                    <span class="pct-text">85%</span>
                 </div>
-              </div>
-              <div class="skill-item">
-                  <i class="devicon-java-plain colored"></i>
-                  <span>Java</span>
-                  <div class="skill-progress-wrapper">
-                      <div class="skill-bar">
-                          <div class="skill-percentage" style="width: 15%;"></div>
-                      </div>
-                      <span class="pct-text">15%</span>
-                  </div>
-              </div>
-
-              <div class="skill-item">
-                  <i class="devicon-javascript-plain colored"></i>
-                  <span>JavaScript</span>
-                  <div class="skill-progress-wrapper">
-                      <div class="skill-bar">
-                          <div class="skill-percentage" style="width: 20%;"></div>
-                      </div>
-                      <span class="pct-text">20%</span>
-                  </div>
-              </div>
-
-              <div class="skill-item">
-                  <i class="devicon-html5-plain colored"></i>
-                  <span>HTML5</span>
-                  <div class="skill-progress-wrapper">
-                      <div class="skill-bar">
-                          <div class="skill-percentage" style="width: 90%;"></div>
-                      </div>
-                      <span class="pct-text">90%</span>
-                  </div>
-              </div>
-
-              <div class="skill-item">
-                  <i class="devicon-css3-plain colored"></i>
-                  <span>CSS3</span>
-                  <div class="skill-progress-wrapper">
-                      <div class="skill-bar">
-                          <div class="skill-percentage" style="width: 85%;"></div>
-                      </div>
-                      <span class="pct-text">85%</span>
-                  </div>
-              </div>
-
-              <div class="skill-item">
-                  <i class="devicon-vscode-plain colored"></i>
-                  <span>VS Code</span>
-                  <div class="skill-progress-wrapper">
-                      <div class="skill-bar">
-                          <div class="skill-percentage" style="width: 80%;"></div>
-                      </div>
-                      <span class="pct-text">80%</span>
-                  </div>
-              </div>
-
-              <div class="skill-item">
-                  <i class="devicon-git-plain colored"></i>
-                  <span>Git</span>
-                  <div class="skill-progress-wrapper">
-                      <div class="skill-bar">
-                          <div class="skill-percentage" style="width: 60%;"></div>
-                      </div>
-                      <span class="pct-text">60%</span>
-                  </div>
-              </div>
-          </div>
-    </div>
-    <div class="projects-section" id="projects-section">
-      <div class="glow-container">
-        <h1 class="glow-title">MY PROJECTS</h1>
-  
-        <div class="glow-box-warp project-box" onclick="goToTomWarps()">
-          <img src="img/logos/tomwarps.png" class="project-logo-warp">
-          <div class="project-text-warp">
-            <h2>TomWarps</h2>
-            <p>High-performance warp system with customizable countdowns, action bar timers, and beautiful portal particles.</p>
-            <div class="tech-stack">
-              <span>Paper API</span> <span>Maven</span> <span>Java</span> <span>1.21.11+ MC Version</span>
+                <p class="bento-text">
+                   Hi there! 👋 I'm Thomas. I am a high school student specializing in Information Technology and an aspiring developer. Although I'm still at the beginning of my journey and exploring different areas of programming, I spend my time building exciting projects and websites. I'm eager to collaborate with others, learn as much as I can, and give my 100% to every project.
+                </p>
             </div>
-          </div>
-        </div>
-        <div class="glow-box-exp project-box" onclick="goToTomExpensive()">
-          <img src="img/logos/tomexpensive.png" class="project-logo-exp">
-          <div class="project-text-exp">
-            <h2>TomExpensive</h2>
-            <p>**TomExpensive** is a lightweight, high-performance solution for Minecraft 1.21.1+ that removes the restrictive "Too Expensive!" limit in Anvils. It ensures your players can always repair and enchant their gear while providing modern utility features.</p>
-            <div class="tech-stack">
-              <span>Paper API</span> <span>Maven</span> <span>Java</span> <span>1.21.11+ MC Version</span>
+
+            <div class="bento-item">
+                <h3>Current Status 🚀</h3>
+                <p class="status-text">Available for new projects and collaborations.</p>
             </div>
-          </div>
-        </div>        
-        <div class="glow-box-mcleader project-box" onclick="goToMcLeader()">
-          <img src="img/logos/mcleader.png" class="project-logo-mcleader">
-          <div class="project-text-mcleader">
-            <h2>MC PVP Leader Website</h2>
-            <p>Friendly leaderboard & stats website for mc 1.9+ pvp system in official kits with real-time data from mctiers API.</p>
-            <div class="tech-stack">
-              <span>JavaScript</span> <span>HTML</span> <span>CSS</span>
+
+            <div class="bento-item">
+                <h3>Next Goal 🎯</h3>
+                <p class="status-text">Learning Full-Stack development</p>
             </div>
-          </div>
-        </div>
-        <div class="glow-box-autoslow project-box" onclick="goToAutoSlow()">
-          <img src="img/logos/discordbot.png" class="project-logo-autoslow">
-          <div class="project-text-autoslow">
-            <h2>AutoSlowModeBot.py Discord Bot</h2>
-            <p>A robust Discord moderation bot designed to handle chat floods with dynamic slowmode, channel locking capabilities, and automated logging with Embeds.</p>
-            <div class="tech-stack">
-              <span>Python</span> <span>Discord.py</span>
+
+            <div class="bento-item item-wide">
+                <h3>My Tech Stack</h3>
+                <div class="skills-grid">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="glow-box coming-soon">
-          <h2>Coming Soon...</h2>
-          <p>New secret projects are currently in development. Stay tuned 👀</p>
-        </div>
-  
-      </div>
-    </div>
-    <div class="links-section" id="links-section">
-      <div class="glow-container">
-        <h1 class="glow-title">IMPORTANT LINKS</h1>
-  
-        <div class="glow-box project-box link-box" onclick="goToDiscord()">
-          <img src="img/logos/discord.png" class="project-logo">
-          <div class="link-text">
-            <h2>Discord Server</h2>
-            <p>Join my official Discord community for updates, support and announcements.</p>
-          </div>
-        </div>
-  
-        <div class="glow-box project-box link-box" onclick="goToModrinth()">
-          <img src="img/logos/modrinth.png" class="project-logo">
-          <div class="link-text">
-            <h2>Modrinth Profile</h2>
-            <p>Check out all my public Minecraft projects and releases on Modrinth.</p>
-          </div>
         </div>
 
-        <div class="glow-box project-box link-box" onclick="goToGitHub()">
-          <img src="img/logos/github.png" class="project-logo">
-          <div class="link-text">
-            <h2>GitHub Profile</h2>
-            <p>Check out all my public GitHub projects.</p>
-          </div>
+        <h1 class="section-title" id="projects">Personal Projects</h1>
+        <div class="projects-grid">
+            
+            <div class="project-card p-exp" onclick="goToTomExpensive()">
+                <img src="img/logos/tomexpensive.png">
+                <div class="project-info">
+                    <h3>TomExpensive</h3>
+                    <p>Minecraft Utility Plugin</p>
+                    <div class="mini-stack"><span>Java</span><span>Paper</span></div>
+                </div>
+            </div>
+
+            <div class="project-card p-warp" onclick="goToTomWarps()">
+                <img src="img/logos/tomwarps.png">
+                <div class="project-info">
+                    <h3>TomWarps</h3>
+                    <p>Advanced Warp System</p>
+                    <div class="mini-stack"><span>Java</span><span>Maven</span></div>
+                </div>
+            </div>
+
+            <div class="project-card p-auto" onclick="goToAutoSlow()">
+                <img src="img/logos/discordbot.png">
+                <div class="project-info">
+                    <h3>AutoSlowBot</h3>
+                    <p>Python Moderation Bot</p>
+                    <div class="mini-stack"><span>Python</span><span>Discord.py</span></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="stats-section" id="stats-section"></div>
-      <div class="glow-container">
-        <h1 class="glow-title">LIVE STATS</h1>
-  
-        <a href="https://bstats.org/plugin/bukkit/TomExpensive" target="_blank">
-          <img src="https://bstats.org/signatures/bukkit/TomExpensive.svg" alt="bStats Statistics" class="stats-svg">
-        </a>
-  
-        <a href="https://bstats.org/plugin/bukkit/TomWarps" target="_blank">
-          <img src="https://bstats.org/signatures/bukkit/TomWarps.svg" alt="bStats Statistics" class="stats-svg">
-        </a>
 
-      </div>
-    </div>
-  </div>
-  <footer class="footer">
-    <p>Created by Thomas &copy; 2025-2026</p>
-  </footer> 
-  <div class="floating-contact" onclick="toggleForm()">
-    <img src="img/logos/gmail.png" class="floating-icon" alt="Contact Me" height="50" width="50">
-  </div>
+        <h1 class="section-title" id="contact-me">Get In Touch</h1>
+        <div class="contact-card">
+            <form name="contact" method="POST" data-netlify="true">
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="What's on your mind?" rows="4" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div class="separator">OR</div>
+            <div class="discord-btn" onclick="goToDiscord()">
+                <i class="devicon-discord-plain"></i> Join My Discord
+            </div>
+        </div>
+    </main>
 
-  <div class="contact-card" id="contactCard">
-      <div class="card-header">
-          <h3>Send me a message ✉️</h3>
-          <button onclick="toggleForm()" class="close-btn">&times;</button>
+    <footer class="modern-footer">
+      <div class="footer-container">
+          <div class="footer-left">
+              <p>Hehe :P</p>
+          </div>
+          
+          <div class="footer-right">
+              <div class="social-group">
+                  <a href="https://github.com/Thomakosxd" target="_blank" class="social-tile">
+                      <i class="devicon-github-original"></i>
+                      <span>GitHub</span>
+                  </a>
+                  <a href="https://discord.gg/4YDMkn5u3y" target="_blank" class="social-tile">
+                      <i class="devicon-discord-plain"></i>
+                      <span>Discord</span>
+                  </a>
+              </div>
+          </div>
       </div>
-      <form name="contact" netlify>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" placeholder="Reason for contact..." required></textarea>
-          <button type="submit">Send Message</button>
-      </form>
-  </div>
-<script src="script.js"></script>
-<script src="form.js"></script>
-<script src="goto.js"></script>
+      <div class="footer-copyright">
+          <p>Created with LOVE by &copy; 2026 Thomas</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

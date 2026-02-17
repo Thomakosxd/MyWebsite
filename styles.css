@@ -1,791 +1,347 @@
-﻿* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+﻿/* ====== CORE STYLES ====== */
+:root {
+  --primary: #00e5ff;
+  --secondary: #bc13fe;
+  --bg: #030305;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* ====== BASE ====== */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #0f0f14;
-  color: #b0bec5;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
-/* ====== NAVBAR ====== */
-nav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(13, 71, 161, 0.35);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-}
-
-nav .logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: #00e5ff;
-}
-
-nav .logo img {
-  height: 50px;
-  width: 50px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-nav a {
-  color: #b0bec5;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 0.85;
-  transition: color 0.3s, opacity 0.3s;
-}
-
-nav a:hover {
-  opacity: 1;
-  color: #00e5ff;
-}
-
-/* ====== HERO ====== */
-.hero {
-  width: auto;
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Background image */
-.hero::before {
+/* Moving Background Glows */
+body::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background: url('img/hero.png') center/90% no-repeat;
-  filter: blur(2px);
-  transform: scale(1.1);
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: 
+      radial-gradient(circle at 15% 20%, rgba(0, 229, 255, 0.1), transparent 30%),
+      radial-gradient(circle at 85% 80%, rgba(188, 19, 254, 0.1), transparent 30%);
   z-index: -1;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
+/* ====== NAVIGATION ====== */
+nav {
+  position: fixed;
+  top: 20px; left: 50%;
+  transform: translateX(-50%);
+  width: 90%; max-width: 1200px;
+  padding: 12px 35px;
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 1000;
 }
 
-/* Hero title */
+nav .logo img { height: 35px; filter: drop-shadow(0 0 8px var(--primary)); }
+
+nav ul { display: flex; list-style: none; gap: 25px; }
+
+nav a {
+  text-decoration: none; color: #fff;
+  font-size: 0.9rem; font-weight: 500;
+  opacity: 0.7; transition: var(--transition);
+}
+
+nav a:hover { opacity: 1; color: var(--primary); }
+
+/* ====== HERO ====== */
+.hero {
+  height: 90vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  background: linear-gradient(rgba(3,3,5,0.5), rgba(3,3,5,0.5)), url('img/hero.png') center/cover;
+}
+
 .hero h1 {
-  position: relative;
-  font-size: 64px;
-  text-transform: uppercase;
-  z-index: 2;
-  color: #00e5ff;
-  animation: pulse 1.5s infinite alternate;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(4rem, 15vw, 9rem);
+  font-weight: 900; line-height: 1;
+  background: linear-gradient(to bottom, #fff, var(--primary));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.3));
 }
 
-/* Glow animation */
-@keyframes pulse {
-  from {
-    text-shadow:
-      0 0 5px #00e5ff,
-      0 0 10px #00e5ff,
-      0 0 20px #00e5ff;
-  }
-  to {
-    text-shadow:
-      0 0 10px #00e5ff,
-      0 0 20px #00e5ff,
-      0 0 40px #00e5ff,
-      0 0 80px #00e5ff;
-  }
-}
-
-/* Typing text */
 .typing-container {
-  margin-top: 20px;
-  font-size: 24px;
-  color: #1e88e5;
-  font-family: monospace;
-  display: flex;
-  align-items: center;
+  margin-top: 20px; font-size: 1.4rem; color: var(--primary);
+  font-weight: 300; letter-spacing: 2px;
 }
 
-.cursor {
-  font-weight: bold;
-  margin-left: 5px;
-  animation: blink 0.7s infinite;
-  color: #00e5ff;
+.cursor { animation: blink 0.8s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ====== CONTAINER & BENTO ====== */
+.container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; margin-bottom: 80px;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+.bento-item {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px; padding: 30px;
+  backdrop-filter: blur(10px); transition: var(--transition);
 }
 
-.link-box { 
-  display: flex;
-  flex-direction: row;      /* Logo και κείμενο δίπλα-δίπλα */
-  align-items: center;       /* Κάθετο κεντράρισμα */
-  justify-content: center;   /* Οριζόντιο κεντράρισμα όλου του γκρουπ */
-  padding: 0 40px;           /* Προσθέτουμε κενό αριστερά-δεξιά */
-  gap: 30px;                 /* Σταθερή απόσταση logo από κείμενο */
-  width: 750px;
-  height: 150px;
-  margin: 0 auto;
+.bento-item:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--primary);
+  transform: translateY(-5px);
 }
 
-.link-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;   /* Ο τίτλος και η περιγραφή ξεκινούν από την ίδια ευθεία */
-  text-align: left;          /* Στοίχιση κειμένου αριστερά για ευανάγνωστη μορφή */
+.item-large { grid-column: span 2; grid-row: span 2; }
+.item-wide { grid-column: span 2; }
+
+.profile-header { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
+.profile-header img { width: 70px; height: 70px; border-radius: 18px; border: 2px solid var(--primary); }
+.profile-header h2 { font-family: 'Space Grotesk'; font-size: 1.8rem; }
+
+.status-text { opacity: 0.7; font-size: 0.95rem; margin-top: 10px; }
+
+.skills-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.skill-tag {
+  padding: 8px 16px; background: rgba(0, 229, 255, 0.1);
+  border: 1px solid var(--primary); border-radius: 100px;
+  font-size: 0.75rem; font-weight: bold; color: var(--primary);
 }
 
-/* Σιγουρέψου ότι οι τίτλοι δεν έχουν κρυφά margins που χαλάνε το κέντρο */
-/* Χρώμα για τους τίτλους στα Important Links */
-.link-text h2 {
-  color: #00e5ff; /* Το Cyan χρώμα σου */
-  font-size: 22px;
-  font-weight: bold;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5); /* Ελαφρύ glow για να ταιριάζει με το στυλ */
-  margin-bottom: 5px;
+/* ====== PROJECTS GRID ====== */
+.section-title {
+  text-align: center; font-size: 2.5rem; margin-bottom: 40px;
+  font-family: 'Space Grotesk'; letter-spacing: 2px; text-transform: uppercase;
 }
 
-/* Αν θέλεις η περιγραφή (p) να παραμείνει γκρι/λευκή για να διαβάζεται εύκολα */
-.link-text p {
-  color: #b0bec5; 
-  font-size: 15px;
-}
-/* Συγκεκριμένο χρώμα για το Discord */
-.glow-box[onclick*="Discord"] h2 {
-  color: #7289da; /* Το κλασικό χρώμα του Discord */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px; margin-bottom: 100px;
 }
 
-/* Συγκεκριμένο χρώμα για το Modrinth */
-.glow-box[onclick*="Modrinth"] h2 {
-  color: #1bd964; /* Το πράσινο του Modrinth */
+.project-card {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 35px; height: 400px; overflow: hidden;
+  position: relative; cursor: pointer; transition: var(--transition);
 }
 
-.glow-box[onclick*="GitHub"] h2 {
-  color: #ffffff; /* Το λευκό του GitHub */
+.project-card:hover { transform: translateY(-10px); }
+
+.project-card img {
+  width: 130px; position: absolute;
+  top: 45%; left: 50%; transform: translate(-50%, -50%);
+  transition: var(--transition);
 }
 
-/* ====== CENTER BOX ====== */
-.center-box {
-  width: 800px;
-  background: #1a1a1f;
-  border-radius: 10px;
-  text-align: center;
-  padding: 50px 20px;
-  margin: 50px auto;
-  color: #b0bec5;
-  position: relative;
+.project-card:hover img { transform: translate(-50%, -60%) scale(1.15) rotate(10deg); }
+
+.project-info {
+  position: absolute; bottom: 0; width: 100%;
+  padding: 35px; background: linear-gradient(transparent, rgba(0,0,0,0.9));
 }
 
-/* ====== GLOW CONTAINER ====== */
-.glow-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  margin-top: 30px;
-}
+.mini-stack { display: flex; gap: 8px; margin-top: 10px; }
+.mini-stack span { font-size: 0.65rem; color: var(--primary); opacity: 0.8; border: 1px solid var(--primary); padding: 2px 8px; border-radius: 4px; }
 
-.glow-title {
-  font-size: 38px;
-  color: #00e5ff;
-  text-shadow:
-    0 0 5px #00e5ff,
-    0 0 10px #00e5ff,
-    0 0 20px #00e5ff;
-}
+/* Individual project hover glows */
+.p-exp:hover { border-color: var(--secondary); box-shadow: 0 0 30px rgba(188, 19, 254, 0.2); }
+.p-warp:hover { border-color: var(--primary); box-shadow: 0 0 30px rgba(0, 229, 255, 0.2); }
+.p-auto:hover { border-color: #5865F2; box-shadow: 0 0 30px rgba(88, 101, 242, 0.2); }
 
-/* Glow boxes */
-.glow-box {
-  width: 750px;
-  height: 150px;
-  background-color: #1a1a1f;
-  border-radius: 15px;
-  border: 2px solid rgba(0, 229, 255, 0.6);
-  box-shadow: 
-    0 0 10px rgba(0, 229, 255, 0.4),
-    0 0 20px rgba(30, 136, 229, 0.3),
-    0 0 30px rgba(30, 136, 229, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.glow-box:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 0 15px rgba(0, 229, 255, 0.6),
-    0 0 30px rgba(30, 136, 229, 0.5),
-    0 0 45px rgba(30, 136, 229, 0.4);
-}
-/* WARP - CYAN */
-.glow-box-warp {
-  width: 750px;
-  height: 150px;
-  background-color: #1a1a1f;
-  border-radius: 15px;
-  border: 2px solid rgba(0, 229, 255, 0.6);
-  box-shadow:
-    0 0 10px rgba(0, 229, 255, 0.4),
-    0 0 20px rgba(0, 229, 255, 0.3),
-    0 0 30px rgba(0, 229, 255, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.glow-box-warp:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 15px rgba(0, 229, 255, 0.6),
-    0 0 30px rgba(0, 229, 255, 0.5),
-    0 0 45px rgba(0, 229, 255, 0.4);
-}
-
-/* EXP - PURPLE */
-.glow-box-exp {
-  width: 750px;
-  height: 150px;
-  background-color: #1a1a1f;
-  border-radius: 15px;
-  border: 2px solid rgba(186, 85, 211, 0.6);
-  box-shadow:
-    0 0 10px rgba(186, 85, 211, 0.4),
-    0 0 20px rgba(148, 0, 211, 0.3),
-    0 0 30px rgba(148, 0, 211, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.glow-box-exp:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 15px rgba(186, 85, 211, 0.6),
-    0 0 30px rgba(148, 0, 211, 0.5),
-    0 0 45px rgba(148, 0, 211, 0.4);
-}
-
-/* MCLEADER - GOLD */
-.glow-box-mcleader {
-  width: 750px;
-  height: 150px;
-  background-color: #1a1a1f;
-  border-radius: 15px;
-  border: 2px solid rgba(255, 193, 7, 0.6);
-  box-shadow:
-    0 0 10px rgba(255, 193, 7, 0.4),
-    0 0 20px rgba(255, 160, 0, 0.3),
-    0 0 30px rgba(255, 160, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.glow-box-mcleader:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 15px rgba(255, 193, 7, 0.6),
-    0 0 30px rgba(255, 160, 0, 0.5),
-    0 0 45px rgba(255, 160, 0, 0.4);
-}
-
-/* --- 4. AutoSlow Leader (Dark Blue) --- */
-.glow-box-autoslow:hover .tech-stack span {
-  border-color: #4fc3f7;
-  background: rgba(79, 195, 247, 0.15);
-  color: #4fc3f7;
-  box-shadow: 0 0 12px rgba(79, 195, 247, 0.5);
-}
-
-/* AUTOSLOW LOGO - DARK BLUE */
-.project-logo-autoslow {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  filter:
-    drop-shadow(0 0 6px #2196f3)
-    drop-shadow(0 0 14px #0d47a1);
-  flex-shrink: 0;
-}
-
-/* AUTOSLOW TEXT */
-.project-text-autoslow h2 {
-  margin: 0 0 8px 0;
-  color: #4fc3f7;
-}
-
-.project-text-autoslow p {
-  margin: 0;
-  color: #90a4ae;
-  line-height: 1.4;
-}
-
-/* AutoSlow - Dark Blue Glow Box */
-.glow-box-autoslow {
-  width: 750px;
-  height: 150px;
-  background-color: #121826;
-  border-radius: 15px;
-  border: 2px solid rgba(33, 150, 243, 0.6);
-  box-shadow:
-    0 0 10px rgba(33, 150, 243, 0.4),
-    0 0 20px rgba(13, 71, 161, 0.35),
-    0 0 35px rgba(13, 71, 161, 0.25);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.glow-box-autoslow:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 15px rgba(33, 150, 243, 0.7),
-    0 0 30px rgba(13, 71, 161, 0.6),
-    0 0 50px rgba(13, 71, 161, 0.45);
-}
-
-/* Error / none */
-.none {
-  font-size: 18px;
-  color: #ff5252;
-}
-
-.footer {
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #1a1a1f;
-  color: #9e9e9e; /* gray */
-  text-align: center;
-  padding: 15px 10px;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  z-index: 999;
-  border-top: 1px solid #2a2a2a;
-}
-
-.footer p {
-  margin: 0;
-}
-
-.coming-soon {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.coming-soon:hover {
-  transform: none;
-  box-shadow: 
-    0 0 10px rgba(0, 229, 255, 0.2),
-    0 0 20px rgba(30, 136, 229, 0.2);
-}
-
-.project-box {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-/* Το container που περιέχει τα tags */
-.tech-stack {
-  margin-top: 15px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center; /* Αυτό τα φέρνει στο κέντρο οριζόντια */
-  align-items: center;
-}
-
-/* Τα ίδια τα tags */
-.tech-stack span {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  color: #fff;
-  font-weight: 600;
-  text-transform: uppercase; /* Προαιρετικό: κάνει τα γράμματα κεφαλαία για πιο pro look */
-  transition: all 0.3s ease;
-}
-
-/* --- 1. TomWarps (Π.χ. Μωβ/Magenta) --- */
-/* --- 1. TomWarps (Cyan) --- */
-.glow-box-warp:hover .tech-stack span {
-  border-color: #00ffff; 
-  background: rgba(0, 255, 255, 0.15);
-  color: #00ffff;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
-}
-
-/* --- 2. TomExpensive (Purple) --- */
-.glow-box-exp:hover .tech-stack span {
-  border-color: #bf00ff; 
-  background: rgba(191, 0, 255, 0.15);
-  color: #bf00ff;
-  box-shadow: 0 0 12px rgba(191, 0, 255, 0.4);
-}
-
-/* --- 3. MC PVP Leader (Gold) --- */
-.glow-box-mcleader:hover .tech-stack span {
-  border-color: #ffca2c; 
-  background: rgba(255, 202, 44, 0.15);
-  color: #ffca2c;
-  box-shadow: 0 0 12px rgba(255, 202, 44, 0.4);
-}
-
-
-/* Σιγουρέψου ότι και τα κείμενα (h2, p) είναι κεντραρισμένα */
-.project-text-warp, .project-text-exp, .project-text-mcleader, .project-text-autoslow {
-  text-align: center; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.project-logo {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 5px #00e5ff) drop-shadow(0 0 10px #1e88e5);
-  flex-shrink: 0;
-}
-
-.project-logo-warp {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 5px #00e5ff) drop-shadow(0 0 10px #00e5ff);
-  flex-shrink: 0;
-}
-
-/* EXP - PURPLE */
-.project-logo-exp {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 5px #ba55d3) drop-shadow(0 0 10px #9400d3);
-  flex-shrink: 0;
-}
-
-/* MCLEADER - GOLD */
-.project-logo-mcleader {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 5px #ffc107) drop-shadow(0 0 10px #ffa000);
-  flex-shrink: 0;
-}
-
-.project-text h2 {
-  margin: 0 0 8px 0;
-  color: #00e5ff;
-}
-
-.project-text p {
-  margin: 0;
-  color: #b0bec5;
-  line-height: 1.4;
-}
-
-.project-text-warp h2 {
-  margin: 0 0 8px 0;
-  color: #00e5ff;
-}
-
-.project-text-warp p {
-  margin: 0;
-  color: #b0bec5;
-  line-height: 1.4;
-}
-
-.project-text-exp h2 {
-  margin: 0 0 8px 0;
-  color: #9400d3;
-}
-
-.project-text-exp p {
-  margin: 0;
-  color: #b0bec5;
-  line-height: 1.4;
-}
-
-.project-text-mcleader h2 {
-  margin: 0 0 8px 0;
-  color: #ffc107;
-}
-
-.project-text-mcleader p {
-  margin: 0;
-  color: #b0bec5;
-  line-height: 1.4;
-}
-
-.about-text {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
-  font-size: 18px;
-  line-height: 1.8;
-  opacity: 0.9;
-}
-.skills-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 20px;
-  padding: 20px;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
-
-.skill-item i {
-  font-size: 50px; /* Μέγεθος εικονιδίου */
-  margin-bottom: 10px;
-}
-
-.skill-item span {
-  font-size: 14px;
-  color: #b0bec5;
-  font-weight: bold;
-}
-
-/* Hover εφέ: Το εικονίδιο μεγαλώνει και φωτίζει */
-.skill-item:hover {
-  transform: translateY(-10px);
-}
-
-.skill-item:hover i {
-  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.8));
-}
-/* Το wrapper της μπάρας */
-.skill-progress-wrapper {
-  margin-top: 10px;
-  width: 80px;            /* Το πλάτος της μπάρας */
-  opacity: 0;             /* Κρυφό αρχικά */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(10px); /* Μικρό εφέ κίνησης προς τα πάνω */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-
-/* Εμφάνιση στο Hover */
-.skill-item:hover .skill-progress-wrapper {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Η βάση της μπάρας */
-.skill-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 229, 255, 0.2);
-}
-
-/* Το γεμάτο κομμάτι (πρόοδος) */
-.skill-percentage {
-  height: 100%;
-  background: linear-gradient(90deg, #00e5ff, #1e88e5); /* Gradient χρώμα */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-}
-
-/* Το κείμενο του ποσοστού */
-.pct-text {
-  font-size: 11px !important;
-  color: #00e5ff !important;
-  font-weight: bold;
-}
-/* Το κουμπί που επιπλέει */
-.floating-contact {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background: #00e5ff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
-  z-index: 2000;
-  transition: transform 0.3s ease;
-}
-
-.floating-contact:hover {
-  transform: scale(1.1) rotate(10deg);
-}
-
-/* Η κάρτα της φόρμας */
+/* ====== CONTACT ====== */
 .contact-card {
-  position: fixed;
-  bottom: 100px;
-  right: 30px;
-  width: 300px;
-  background: #1a1a1f;
-  border: 2px solid #00e5ff;
-  border-radius: 15px;
-  padding: 20px;
-  display: none; /* Κρυφό αρχικά */
-  flex-direction: column;
-  z-index: 2000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  max-width: 700px; margin: 0 auto;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  padding: 50px; border-radius: 40px; text-align: center;
 }
 
-.card-header {
+.contact-card input, .contact-card textarea {
+  width: 100%; background: rgba(0,0,0,0.3);
+  border: 1px solid var(--glass-border); padding: 15px;
+  border-radius: 12px; color: #fff; margin-bottom: 15px;
+}
+
+.submit-btn {
+  width: 100%; padding: 15px; background: var(--primary);
+  border: none; border-radius: 12px; font-weight: bold;
+  cursor: pointer; transition: var(--transition);
+}
+
+.submit-btn:hover { box-shadow: 0 0 20px var(--primary); transform: scale(1.02); }
+
+.separator { margin: 20px 0; opacity: 0.3; font-size: 0.8rem; }
+
+.discord-btn {
+  background: #5865F2; color: #fff; padding: 15px;
+  border-radius: 12px; font-weight: bold; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: var(--transition);
+}
+
+/* ====== FOOTER ====== */
+/* ====== THE ULTIMATE FOOTER ====== */
+.modern-footer {
+  position: relative;
+  margin-top: 150px;
+  padding: 80px 0 40px;
+  background: linear-gradient(to top, rgba(0, 229, 255, 0.05), transparent);
+  border-top: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  gap: 50px;
 }
 
-.card-header h3 { color: #00e5ff; font-size: 18px; margin: 0; }
-
-.close-btn { 
-  background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; 
+.footer-left {
+  max-width: 350px;
 }
 
-/* Styling για τα inputs */
-.contact-card input, .contact-card textarea {
-  width: 100%;
-  background: #0f0f14;
-  border: 1px solid #333;
-  color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-}
-
-.contact-card button[type="submit"] {
-  background: #00e5ff;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
+.footer-logo {
+  height: 50px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px var(--primary));
   transition: 0.3s;
 }
 
-.contact-card button[type="submit"]:hover {
-  background: #00b8d4;
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+.footer-left p {
+  font-size: 0.95rem;
+  color: var(--text);
+  opacity: 0.6;
+  line-height: 1.6;
 }
 
-.stats-svg {
-  width: 750px;
-  height: auto;
+/* Social Tiles */
+.footer-right {
+  display: flex;
+  gap: 20px;
 }
 
-/* ====== RESPONSIVE ====== */
-/* ================= MOBILE FIX ================= */
+.social-group {
+  display: flex;
+  gap: 15px;
+}
+
+.social-tile {
+  text-decoration: none;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 15px 25px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-tile i {
+  font-size: 1.4rem;
+}
+
+.social-tile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+}
+
+.social-tile:hover i {
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px var(--primary));
+}
+
+/* Copyright Bar */
+.footer-copyright {
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 0.8rem;
+  opacity: 0.4;
+  letter-spacing: 1px;
+}
+
+/* Responsive Fix */
 @media (max-width: 768px) {
-
-  body { overflow-x: hidden; }
-
-  /* NAVBAR */
-  nav { padding: 12px 15px; }
-  nav .logo img { height: 40px; width: 40px; }
-  nav ul { gap: 12px; }
-  nav a { font-size: 14px; }
-
-  /* HERO */
-  .hero { height: 350px; padding-top: 60px; }
-  .hero h1 { font-size: 36px; text-align: center; }
-  .typing-container { font-size: 14px; text-align: center; }
-
-  /* CENTER BOX */
-  .center-box { width: 95%; margin: 30px auto; padding: 30px 15px; }
-
-  /* GLOW BOXES (Όλα τα είδη) */
-  .glow-box, 
-  .glow-box-warp, 
-  .glow-box-exp, 
-  .glow-box-mcleader, 
-  .glow-box-autoslow {
-    width: 100% !important;
-    height: auto !important; /* Επιτρέπει στο κουτί να μεγαλώσει αν το κείμενο είναι πολύ */
-    padding: 20px 10px;
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 20px;
   }
-
-  /* PROJECT BOX STRUCTURE */
-  .project-box, .link-box {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
+  
+  .footer-right {
+      justify-content: center;
   }
-
-  /* PROJECT LOGOS (Όλα τα είδη) */
-  .project-logo, 
-  .project-logo-warp, 
-  .project-logo-exp, 
-  .project-logo-mcleader, 
-  .project-logo-autoslow {
-    width: 55px;
-    height: 55px;
+  
+  .social-tile {
+      padding: 12px 20px;
   }
+}
 
-  /* PROJECT TEXTS (Όλα τα είδη) */
-  .project-text, 
-  .project-text-warp, 
-  .project-text-exp, 
-  .project-text-mcleader, 
-  .project-text-autoslow,
-  .link-text {
-    align-items: center; /* Κεντράρει τα στοιχεία μέσα στο flex */
-    text-align: center;
-  }
+/* ====== MOBILE ====== */
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .item-large, .item-wide { grid-column: span 2; }
+}
 
-  .project-text h2, 
-  .project-text-warp h2, 
-  .project-text-exp h2, 
-  .project-text-mcleader h2, 
-  .project-text-autoslow h2 {
-    font-size: 18px;
-  }
+@media (max-width: 600px) {
+  nav ul { display: none; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .item-large, .item-wide { grid-column: span 1; }
+  .hero h1 { font-size: 3.5rem; }
+  .contact-card { padding: 30px; }
+}
 
-  .project-text p, 
-  .project-text-warp p, 
-  .project-text-exp p, 
-  .project-text-mcleader p, 
-  .project-text-autoslow p {
-    font-size: 14px;
-  }
+/* --- SCROLL ANIMATIONS --- */
+.bento-item, .project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
 
-  /* TECH STACK */
-  .tech-stack {
-    justify-content: center;
-  }
-
-  /* ABOUT TEXT */
-  .about-text { font-size: 15px; line-height: 1.6; padding: 0 10px; }
-
-  /* FOOTER */
-  .footer { font-size: 13px; padding: 12px 5px; }
+.bento-item.show, .project-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
