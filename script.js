@@ -47,7 +47,7 @@ const goToTomExpensive = () => openLink("https://modrinth.com/plugin/tomexpensiv
 const goToDiscord = () => openLink("https://discord.gg/4YDMkn5u3y");
 const goToModrinth = () => openLink("https://modrinth.com/user/Thomakosxd");
 const goToGitHub = () => openLink("https://github.com/Thomakosxd");
-const goToAutoSlow = () => openLink("https://github.com/Thomakosxd/AutoSlowModeBot.py");
+const goToMcLeader = () => openLink("https://mcleader.thomasts.site");
 const goToEmail = () => window.location.href = 'mailto:thomasts1801@gmail.com';
 
 /* --- INTERSECTION OBSERVER --- */

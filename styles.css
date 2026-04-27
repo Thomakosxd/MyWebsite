@@ -187,7 +187,7 @@ nav a:hover { opacity: 1; color: var(--primary); }
 /* Individual project colors */
 .p-exp:hover { border-color: var(--secondary); box-shadow: 0 0 30px rgba(188, 19, 254, 0.2); }
 .p-warp:hover { border-color: var(--primary); box-shadow: 0 0 30px rgba(0, 229, 255, 0.2); }
-.p-auto:hover { border-color: #5865F2; box-shadow: 0 0 30px rgba(88, 101, 242, 0.2); }
+.p-mcleader:hover { border-color: gold; box-shadow: 0 0 30px goldenrod; }
 
 /* ====== 6. CONTACT SECTION ====== */
 .contact-card {
@@ -211,13 +211,6 @@ nav a:hover { opacity: 1; color: var(--primary); }
 .submit-btn:hover { box-shadow: 0 0 20px var(--primary); transform: scale(1.02); }
 
 .separator { margin: 20px 0; opacity: 0.3; font-size: 0.8rem; }
-
-.discord-btn {
-  background: #5865F2; color: #fff; padding: 15px;
-  border-radius: 12px; font-weight: bold; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  transition: var(--transition);
-}
 
 /* ====== 7. FOOTER SECTION ====== */
 .modern-footer {
