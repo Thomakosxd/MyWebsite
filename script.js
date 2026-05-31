@@ -1,9 +1,7 @@
-/* --- TYPING EFFECT --- */
 const texts = [
-  "👋🏻 Hello",
-  "🌐 Web Developer",
-  "🏫 High School Student",
-  "📏 Still Learning",
+  "Software Developer",
+  "IT Student",
+  "Backend & Systems Enthusiast"
 ];
 
 let index = 0;
@@ -25,51 +23,61 @@ function typeEffect() {
     charIndex++;
   }
 
-  let typeSpeed = isDeleting ? 40 : 100 + Math.random() * 50;
+  let typeSpeed = isDeleting ? 30 : 70 + Math.random() * 30;
 
   if (!isDeleting && charIndex === currentText.length) {
-    typeSpeed = 1500;
+    typeSpeed = 2000;
     isDeleting = true;
   } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
     index = (index + 1) % texts.length;
-    typeSpeed = 500;
+    typeSpeed = 400;
   }
 
   setTimeout(typeEffect, typeSpeed);
 }
 
-/* --- NAVIGATION & LINKS --- */
-const openLink = (url) => window.open(url, "_blank", "noopener,noreferrer");
+function initFilters() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
 
-const goToTomWarps = () => openLink("https://modrinth.com/plugin/tomwarps");
-const goToTomExpensive = () => openLink("https://modrinth.com/plugin/tomexpensive");
-const goToDiscord = () => openLink("https://discord.gg/4YDMkn5u3y");
-const goToModrinth = () => openLink("https://modrinth.com/user/Thomakosxd");
-const goToGitHub = () => openLink("https://github.com/Thomakosxd");
-const goToMcLeader = () => openLink("https://mcleader.thomasts.site");
-const goToEmail = () => window.location.href = 'mailto:thomasts1801@gmail.com';
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
 
-/* --- INTERSECTION OBSERVER --- */
+      const filterValue = button.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+
+        if (filterValue === 'all' || filterValue === cardCategory) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.classList.add('show');
+          }, 10);
+        } else {
+          card.classList.remove('show');
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 
-/* --- INITIALIZATION --- */
 document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
+  initFilters();
 
-  document.querySelectorAll('.skill-percentage, .bento-item, .project-card').forEach((el) => {
+  document.querySelectorAll('.bento-item, .project-card').forEach((el) => {
     observer.observe(el);
   });
-
-  console.log(
-    "%c🚀 THOMAS PORTFOLIO %c\nDeveloped by Thomas. Feel free to explore!",
-    "color: #00e5ff; font-size: 24px; font-weight: bold; background: #111; padding: 5px 10px; border-radius: 5px;",
-    "color: #b0bec5; font-size: 14px;"
-  );
 });
