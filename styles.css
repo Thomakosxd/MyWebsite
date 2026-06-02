@@ -554,7 +554,8 @@ nav a:hover {
 .card-mcleader { --accent: #ffd93d; --accent-rgb: 255,217,61; }
 .card-drinacos { --accent: #ff6b6b; --accent-rgb: 255,107,107; }
 .card-discordbot { --accent: #6bcb77; --accent-rgb: 107,203,119; }
-
+.card-calculator { --accent: #9d4edd; --accent-rgb: 255,0,127; }
+  
 .project-card::before {
   content: '';
   position: absolute;
