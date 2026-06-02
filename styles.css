@@ -805,6 +805,11 @@ footer::before {
   box-shadow: 0 8px 25px rgba(255,107,107,0.15);
   background: rgba(255,107,107,0.06);
 }
+.social-btn.tiktok:hover {
+  border-color: rgba(0, 242, 234, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 242, 234, 0.15);
+  background: rgba(0, 242, 234, 0.04);
+}
 
 .footer-copy {
   text-align: center;
@@ -841,7 +846,9 @@ footer::before {
   nav a { font-size: 0.72rem; padding: 6px 10px; letter-spacing: 0; }
 
   /* Hero */
-  .hero-name { font-size: clamp(3.8rem, 16vw, 6rem); }
+  .hero-name { 
+    font-size: 3.5rem !important; /* Σταθερό μέγεθος για tablet/normal κινητά */
+  }
   .typing-wrap { font-size: 1rem; letter-spacing: 0.05em; }
   .hero-scroll-hint { bottom: 28px; }
 
@@ -873,7 +880,10 @@ footer::before {
   nav ul { gap: 1px; }
   nav a { font-size: 0.68rem; padding: 5px 8px; }
   .nav-logo img { height: 26px; }
-
+  .hero-name { 
+    font-size: 2.6rem !important; /* Ακόμα πιο μικρό για πολύ μικρά κινητά */
+    letter-spacing: -0.05em;      /* Μαζεύει λίγο τα γράμματα μεταξύ τους */
+  }
   /* Orbs smaller on mobile for perf */
   .orb-1 { width: 200px; height: 200px; }
   .orb-2 { width: 180px; height: 180px; }
