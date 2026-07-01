@@ -8,9 +8,14 @@
   --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-* {
-  margin: 0; padding: 0; box-sizing: border-box;
-  scroll-behavior: smooth;
+*,*::before,*::after {
+  box-sizing:border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -326,6 +331,7 @@ nav a:hover { opacity: 1; color: var(--primary); }
 }
 
 .contact-card {
+  margin: 0; padding: 0; box-sizing: border-box;
   max-width: 700px; margin: 0 auto;
   background: var(--glass); border: 1px solid var(--glass-border);
   padding: 50px; border-radius: 40px; text-align: center;
