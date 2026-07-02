@@ -546,3 +546,30 @@ nav a:hover { opacity: 1; color: var(--primary); }
 .youtube-tile:hover i {
     transform: scale(1.15);
 }
+
+.contact-email{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:0 0 30px;
+    color:#b8b8b8;
+    font-size:.95rem;
+}
+
+.contact-email i{
+    color:var(--primary);
+}
+
+.contact-email a{
+    color:var(--primary);
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.contact-email a:hover{
+    text-decoration:underline;
+    color:#fff;
+}
