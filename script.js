@@ -2,9 +2,8 @@ const isGreek = document.documentElement.lang === "el";
 
 const texts = isGreek
   ? [
-      "Προγραμματιστής Λογισμικού",
-      "Μαθητής Πληροφορικής",
-      "Λάτρης Backend & Συστημάτων"
+      "Προγραμματιστής",
+      "Μαθητής Πληροφορικής"
     ]
   : [
       "Software Developer",
