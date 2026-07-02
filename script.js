@@ -65,6 +65,29 @@ function initFilters() {
   });
 }
 
+// Journey timeline: fills the connecting line as you scroll down through it,
+// and moves a glowing cursor dot to mark the current position — giving a
+// "time passing" feel as you move from the earliest entry towards today.
+function initTimelineProgress() {
+  const timeline = document.querySelector('.timeline');
+  const progressBar = document.querySelector('.timeline-progress');
+  const cursor = document.querySelector('.timeline-cursor');
+  if (!timeline || !progressBar) return;
+
+  function updateTimelineProgress() {
+    const rect = timeline.getBoundingClientRect();
+    const viewportPoint = window.innerHeight * 0.5;
+    const raw = (viewportPoint - rect.top) / rect.height;
+    const progress = Math.min(Math.max(raw, 0), 1);
+    progressBar.style.height = (progress * 100) + '%';
+    if (cursor) cursor.style.top = (progress * 100) + '%';
+  }
+
+  window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+  window.addEventListener('resize', updateTimelineProgress);
+  updateTimelineProgress();
+}
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -76,8 +99,28 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
   initFilters();
+  initTimelineProgress();
 
-  document.querySelectorAll('.bento-item, .project-card').forEach((el) => {
+  document.querySelectorAll('.bento-item, .project-card, .timeline-year').forEach((el) => {
     observer.observe(el);
   });
+});
+
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const item = button.parentElement;
+
+        document.querySelectorAll(".faq-item").forEach(faq => {
+            if(faq !== item){
+                faq.classList.remove("active");
+            }
+        });
+
+        item.classList.toggle("active");
+
+    });
+
 });
