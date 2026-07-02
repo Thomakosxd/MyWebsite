@@ -25,6 +25,10 @@ body {
   overflow-x: hidden;
 }
 
+/* Anchor targets sit below the fixed nav, so jumping to a section
+   (from the nav, or a filter/FAQ deep-link) doesn't hide its heading. */
+[id] { scroll-margin-top: 110px; }
+
 /* Standard scrollbar props (Firefox) + webkit fallback (Chrome/Safari/Edge) */
 * {
   scrollbar-width: thin;
@@ -58,7 +62,7 @@ nav {
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   border: 1px solid var(--glass-border);
-  border-radius: 100px;
+  border-radius: 32px;
   display: flex; justify-content: space-between; align-items: center;
   z-index: 1000;
 }
@@ -71,6 +75,54 @@ nav a {
   opacity: 0.7; transition: var(--transition);
 }
 nav a:hover { opacity: 1; color: var(--primary); }
+
+/* Language switch + mobile hamburger, grouped on the right of the nav */
+.nav-actions { display: flex; align-items: center; gap: 14px; }
+
+.lang-switch {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 7px 15px;
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  opacity: 0.8;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.lang-switch:hover {
+  opacity: 1;
+  color: var(--bg);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px; height: 38px;
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 18px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .hero {
   height: 90vh;
@@ -341,10 +393,6 @@ nav a:hover { opacity: 1; color: var(--primary); }
   transform: scale(1.1) rotate(4deg);
 }
 
-/* Contact card — merged into a single, non-conflicting definition
-   (the original file defined .contact-card and .submit-btn twice with
-   different values; the second definition always won in the cascade,
-   so this keeps that same final, effective look) */
 .contact-card {
   max-width: 700px;
   margin: 0 auto;
@@ -544,6 +592,47 @@ nav a:hover { opacity: 1; color: var(--primary); }
   .footer-left { max-width: 100%; }
 }
 
+/* Nav becomes a hamburger-triggered dropdown below this width */
+@media (max-width: 860px) {
+  nav { flex-wrap: wrap; row-gap: 0; }
+
+  nav ul {
+    order: 3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid transparent;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease, padding-top 0.4s ease;
+  }
+
+  nav ul.nav-open {
+    max-height: 420px;
+    opacity: 1;
+    margin-top: 16px;
+    padding-top: 14px;
+    padding-bottom: 4px;
+    border-top-color: var(--glass-border);
+  }
+
+  nav ul li { width: 100%; }
+  nav ul a {
+    display: block;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 14px;
+    opacity: 0.85;
+  }
+  nav ul a:hover { background: rgba(255, 255, 255, 0.05); }
+
+  .nav-toggle { display: flex; }
+}
+
 @media (max-width: 768px) {
   .hero h1 { font-size: 4rem; }
   .footer-right { justify-content: center; }
@@ -552,8 +641,7 @@ nav a:hover { opacity: 1; color: var(--primary); }
 
 @media (max-width: 600px) {
   nav { width: 95%; padding: 10px 20px; }
-  nav ul { display: none; }
-  
+
   .hero h1 { font-size: 3.2rem; }
   .typing-container { font-size: 1.1rem; }
   

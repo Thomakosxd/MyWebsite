@@ -1,8 +1,16 @@
-const texts = [
-  "Software Developer",
-  "IT Student",
-  "Backend & Systems Enthusiast"
-];
+const isGreek = document.documentElement.lang === "el";
+
+const texts = isGreek
+  ? [
+      "Προγραμματιστής Λογισμικού",
+      "Μαθητής Πληροφορικής",
+      "Λάτρης Backend & Συστημάτων"
+    ]
+  : [
+      "Software Developer",
+      "IT Student",
+      "Backend & Systems Enthusiast"
+    ];
 
 let index = 0;
 let charIndex = 0;
@@ -65,6 +73,32 @@ function initFilters() {
   });
 }
 
+// Mobile nav: hamburger button toggles the link list open/closed,
+// and picking a link (or resizing back to desktop) closes it again.
+function initNavToggle() {
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (!toggle || !navLinks) return;
+
+  function closeNav() {
+    navLinks.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeNav();
+  });
+}
+
 // Journey timeline: fills the connecting line as you scroll down through it,
 // and moves a glowing cursor dot to mark the current position — giving a
 // "time passing" feel as you move from the earliest entry towards today.
@@ -99,12 +133,14 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
   initFilters();
+  initNavToggle();
   initTimelineProgress();
 
   document.querySelectorAll('.bento-item, .project-card, .timeline-year').forEach((el) => {
     observer.observe(el);
   });
 });
+
 
 
 document.querySelectorAll(".faq-question").forEach(button => {
