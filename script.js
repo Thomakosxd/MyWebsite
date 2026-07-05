@@ -1,108 +1,161 @@
-// ─── CUSTOM CURSOR (GPU transform, no layout thrashing) ───
-const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+const isGreek = document.documentElement.lang === "el";
 
-const dot = document.getElementById('cursorDot');
-const ring = document.getElementById('cursorRing');
+const texts = isGreek
+  ? [
+      "Προγραμματιστής",
+      "Μαθητής Πληροφορικής"
+    ]
+  : [
+      "Software Developer",
+      "IT Student",
+      "Backend & Systems Enthusiast"
+    ];
 
-if (!isTouchDevice()) {
-  let rx = 0, ry = 0, mx = 0, my = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-    dot.style.transform = `translate(${mx - 3.5}px, ${my - 3.5}px)`;
-  }, { passive: true });
-
-  // Smooth ring with rAF but only transform (GPU only, no layout)
-  function animateRing() {
-    rx += (mx - rx - 16) * 0.18;
-    ry += (my - ry - 16) * 0.18;
-    ring.style.transform = `translate(${rx}px, ${ry}px)`;
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  document.querySelectorAll('a, button, .project-card, .filter-btn, .social-btn').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('expand'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
-  });
-}
-
-// ─── TYPING EFFECT ───
-const texts = ["Software Developer", "IT Student", "Backend Enthusiast", "Plugin Builder"];
-let idx = 0, charIdx = 0, deleting = false;
+let index = 0;
+let charIndex = 0;
+let currentText = "";
+let isDeleting = false;
 
 function typeEffect() {
-  const el = document.getElementById('typing-text');
-  if (!el) return;
-  const current = texts[idx];
-  el.textContent = deleting
-    ? current.substring(0, charIdx - 1)
-    : current.substring(0, charIdx + 1);
-  charIdx += deleting ? -1 : 1;
+  const target = document.getElementById("typing-text");
+  if (!target) return;
 
-  let speed = deleting ? 28 : 65 + Math.random() * 25;
-  if (!deleting && charIdx === current.length) { speed = 2200; deleting = true; }
-  else if (deleting && charIdx === 0) { deleting = false; idx = (idx + 1) % texts.length; speed = 350; }
-  setTimeout(typeEffect, speed);
+  currentText = texts[index];
+  
+  if (isDeleting) {
+    target.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    target.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let typeSpeed = isDeleting ? 30 : 70 + Math.random() * 30;
+
+  if (!isDeleting && charIndex === currentText.length) {
+    typeSpeed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    index = (index + 1) % texts.length;
+    typeSpeed = 400;
+  }
+
+  setTimeout(typeEffect, typeSpeed);
 }
 
-// ─── FILTER ───
 function initFilters() {
-  const btns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.project-card');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
 
-      cards.forEach((card, i) => {
-        const match = filter === 'all' || card.dataset.category === filter;
-        if (match) {
+      const filterValue = button.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+
+        if (filterValue === 'all' || filterValue === cardCategory) {
           card.style.display = 'flex';
-          setTimeout(() => card.classList.add('show'), i * 50);
+          setTimeout(() => {
+            card.classList.add('show');
+          }, 10);
         } else {
           card.classList.remove('show');
-          setTimeout(() => { card.style.display = 'none'; }, 350);
+          card.style.display = 'none';
         }
       });
     });
   });
 }
 
-// ─── SCROLL FADE-IN (IntersectionObserver, very cheap) ───
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('show'), i * 70);
-      observer.unobserve(entry.target); // stop observing after shown
-    }
-  });
-}, { threshold: 0.08 });
+// Mobile nav: hamburger button toggles the link list open/closed,
+// and picking a link (or resizing back to desktop) closes it again.
+function initNavToggle() {
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (!toggle || !navLinks) return;
 
-// ─── CARD MOUSE GLOW (desktop only) ───
-function initCardGlow() {
-  if (isTouchDevice()) return;
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
-      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
-    }, { passive: true });
+  function closeNav() {
+    navLinks.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeNav();
   });
 }
 
-// ─── INIT ───
-document.addEventListener('DOMContentLoaded', () => {
+// Journey timeline: fills the connecting line as you scroll down through it,
+// and moves a glowing cursor dot to mark the current position — giving a
+// "time passing" feel as you move from the earliest entry towards today.
+function initTimelineProgress() {
+  const timeline = document.querySelector('.timeline');
+  const progressBar = document.querySelector('.timeline-progress');
+  const cursor = document.querySelector('.timeline-cursor');
+  if (!timeline || !progressBar) return;
+
+  function updateTimelineProgress() {
+    const rect = timeline.getBoundingClientRect();
+    const viewportPoint = window.innerHeight * 0.5;
+    const raw = (viewportPoint - rect.top) / rect.height;
+    const progress = Math.min(Math.max(raw, 0), 1);
+    progressBar.style.height = (progress * 100) + '%';
+    if (cursor) cursor.style.top = (progress * 100) + '%';
+  }
+
+  window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+  window.addEventListener('resize', updateTimelineProgress);
+  updateTimelineProgress();
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
   initFilters();
-  initCardGlow();
+  initNavToggle();
+  initTimelineProgress();
 
-  document.querySelectorAll('.bento-item').forEach((el, i) => {
-    el.style.transitionDelay = (i * 0.07) + 's';
+  document.querySelectorAll('.bento-item, .project-card, .timeline-year').forEach((el) => {
     observer.observe(el);
   });
-  document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
+});
+
+
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const item = button.parentElement;
+
+        document.querySelectorAll(".faq-item").forEach(faq => {
+            if(faq !== item){
+                faq.classList.remove("active");
+            }
+        });
+
+        item.classList.toggle("active");
+
+    });
+
 });
