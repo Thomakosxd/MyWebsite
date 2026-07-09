@@ -1200,20 +1200,21 @@ nav a:hover {
 }
 
 .github-tile:hover {
-  border-color: var(--primary);
-  box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+  border-color: #24292e;
+  color: #24292e;
+  box-shadow: 0 10px 30px rgba(36, 41, 46, 0.25);
 }
 
 .instagram-tile:hover {
-  border-color: #fccc63;
-  box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
+  border-color: #e1306c;
   color: #e1306c;
+  box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
 }
 
 .tiktok-tile:hover {
-  border-color: #ffffff;
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+  border-color: #ff0050;
+  color: #00f2fe;
+  box-shadow: 0 10px 30px rgba(255, 0, 80, 0.25);
 }
 
 .youtube-tile:hover {
@@ -1222,10 +1223,17 @@ nav a:hover {
   box-shadow: 0 10px 30px rgba(255, 0, 0, 0.25);
 }
 
+.linkedin-tile:hover {
+  border-color: #0a66c2;
+  color: #0a66c2;
+  box-shadow: 0 10px 30px rgba(10, 102, 194, 0.25);
+}
+
 .github-tile:hover i,
 .instagram-tile:hover i,
 .tiktok-tile:hover i,
-.youtube-tile:hover i {
+.youtube-tile:hover i,
+.linkedin-tile:hover i {
   transform: scale(1.15);
 }
 
