@@ -159,3 +159,59 @@ document.querySelectorAll(".faq-question").forEach(button => {
     });
 
 });
+
+emailjs.init({
+  publicKey: "jXh3yLZ_VG7rq-xEH"
+});
+
+const form = document.getElementById("contact-form");
+
+if (form) {
+
+  const button = form.querySelector(".submit-btn");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    button.disabled = true;
+    button.textContent = isGreek ? "Αποστολή..." : "Sending...";
+    status.textContent = "";
+
+    try {
+
+      await emailjs.sendForm(
+        "service_e92l43b",
+        "template_ee8hvgm",
+        form
+      );
+
+      status.textContent = isGreek
+        ? "✅ Το μήνυμα στάλθηκε με επιτυχία!"
+        : "✅ Message sent successfully!";
+
+      status.style.color = "#22c55e";
+
+      form.reset();
+
+    } catch (error) {
+
+      console.error(error);
+
+      status.textContent = isGreek
+        ? "❌ Κάτι πήγε στραβά. Προσπαθήστε ξανά."
+        : "❌ Something went wrong. Please try again.";
+
+      status.style.color = "#ef4444";
+
+    }
+
+    button.disabled = false;
+    button.textContent = isGreek
+      ? "Αποστολή Μηνύματος"
+      : "Send Message";
+
+  });
+
+}

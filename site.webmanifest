@@ -1,0 +1,32 @@
+{
+  "name": "Thomas Tsolakis",
+  "short_name": "Thomas",
+  "description": "Official portfolio of Thomas Tsolakis, Software Developer.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#030305",
+  "theme_color": "#030305",
+  "lang": "en",
+  "categories": [
+    "portfolio",
+    "developer",
+    "technology",
+    "software"
+  ],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

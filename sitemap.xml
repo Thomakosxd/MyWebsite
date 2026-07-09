@@ -17,7 +17,12 @@
             hreflang="el"
             href="https://thomasts.site/el/" />
 
-        <lastmod>2026-07-04</lastmod>
+        <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://thomasts.site/" />
+
+        <lastmod>2026-07-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -35,7 +40,12 @@
             hreflang="el"
             href="https://thomasts.site/el/" />
 
-        <lastmod>2026-07-04</lastmod>
+        <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="https://thomasts.site/" />
+
+        <lastmod>2026-07-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
