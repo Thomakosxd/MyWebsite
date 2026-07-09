@@ -327,6 +327,98 @@ nav a:hover {
   letter-spacing: 2px;
 }
 
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 16px 34px;
+
+    text-decoration: none;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: .4px;
+
+    border-radius: 14px;
+
+    transition: .35s ease;
+
+    overflow: hidden;
+}
+
+.hero-btn.primary {
+    color: #000;
+    background: linear-gradient(135deg, var(--primary), #73f6ff);
+    box-shadow:
+        0 8px 30px rgba(0,229,255,.28),
+        inset 0 1px 0 rgba(255,255,255,.35);
+}
+
+.hero-btn.primary:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 15px 45px rgba(0,229,255,.45);
+}
+
+.hero-btn.secondary {
+    color: white;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(14px);
+}
+
+.hero-btn.secondary:hover {
+
+    color: var(--primary);
+
+    border-color: var(--primary);
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 35px rgba(0,229,255,.18);
+}
+
+.hero-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transition: .7s;
+}
+
+.hero-btn:hover::before {
+    left: 160%;
+}
+
 /* ==========================================================
    ABOUT
    ========================================================== */
@@ -1422,6 +1514,7 @@ nav a:hover {
   .typing-container {
     font-size: 1.1rem;
   }
+  
 
   .container {
     padding: 60px 15px;
@@ -1459,4 +1552,14 @@ nav a:hover {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .hero-btn{
+      width:100%;
+      max-width:300px;
+  }
+
 }
