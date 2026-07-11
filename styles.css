@@ -176,7 +176,7 @@ nav {
 }
 
 nav .logo img {
-    height: 40px;
+    height: 60px;
     transition: transform .25s ease, filter .25s ease;
     filter: drop-shadow(0 0 6px rgba(34, 211, 238, .35));
 }
@@ -469,8 +469,8 @@ nav a:hover {
 }
 
 .profile-header img {
-    width: 76px;
-    height: 76px;
+    width: 86px;
+    height: 86px;
     flex-shrink: 0;
     padding: 8px;
     border: 2px solid var(--primary);

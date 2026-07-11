@@ -345,10 +345,10 @@
         <h1 class="section-title" id="projects">Selected Projects</h1>
         
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All Architecture</button>
+            <button class="filter-btn active" data-filter="all">All Projects</button>
             <button class="filter-btn" data-filter="plugin">Java Plugins</button>
             <button class="filter-btn" data-filter="website">Web Applications</button>
-            <button class="filter-btn" data-filter="bot" disabled>Automation Bots</button>
+            <button class="filter-btn" data-filter="bot" onclick="event.stopImmediatePropagation(); showToast('error', 'Error', 'Currently, I am not working on new Discord bot projects. Please check back later for availability.');">Discord Bots</button>
         </div>
 
         <div class="projects-grid">

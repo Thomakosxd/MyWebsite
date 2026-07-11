@@ -187,7 +187,7 @@
                 Δες τα Projects μου
             </a>
 
-            <a href="../resume_el.pdf" download class="hero-btn secondary">
+            <a href="../resume/resume_el.pdf" download class="hero-btn secondary">
                 <i class="fa-solid fa-file-arrow-down"></i>
                 Κατεβάσε το Βιογραφικό μου
             </a>
@@ -358,10 +358,10 @@
         <h1 class="section-title" id="projects">Επιλεγμένα Projects</h1>
         
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">Όλη η Αρχιτεκτονική</button>
+            <button class="filter-btn active" data-filter="all">Όλα τα Projects</button>
             <button class="filter-btn" data-filter="plugin">Java Plugins</button>
             <button class="filter-btn" data-filter="website">Web Εφαρμογές</button>
-            <button class="filter-btn" data-filter="bot" disabled>Bots Αυτοματισμού</button>
+            <button class="filter-btn" data-filter="bot" onclick="event.stopImmediatePropagation(); showToast('error', 'Error', 'Αυτην την στιγμη δεν φτιαχνω νεα projects για Discord Bots. Παρακαλω ελεγξτε αργοτερα για διαθεσιμότητα.');">Discord Bots</button>
         </div>
 
         <div class="projects-grid">
@@ -664,7 +664,21 @@
     <script src="../js/contact.js"></script>
     <script src="../js/main.js"></script>
 
-    <button id="scroll-top-btn" aria-label="Scroll to top">
+
+    <div id="toast" class="toast">
+
+        <div class="toast-icon">
+            <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div class="toast-content">
+            <h4 id="toastTitle">Success</h4>
+            <p id="toastMessage">Message sent successfully.</p>
+        </div>
+
+    </div>
+
+    <button id="scrollTopBtn" aria-label="Scroll to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
