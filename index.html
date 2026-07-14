@@ -172,7 +172,7 @@
                 View Projects
             </a>
 
-            <a href="resume_en.pdf" download class="hero-btn secondary">
+            <a onclick="showToast('error', 'Sorry', 'My english resume is not available right now!')" class="hero-btn secondary">
                 <i class="fa-solid fa-file-arrow-down"></i>
                 Download Resume
             </a>
@@ -206,13 +206,38 @@
                 <p class="status-text">Making my own dynamic websites, projects💪</p>
             </div>
 
-            <div class="bento-item item-wide">
-                <h3>I know this programming languages</h3>
-                <div class="skills-grid">
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">HTML5 / CSS3</span>
+            <div class="bento-item item-wide tech-stack-bento">
+                <h3>My Tech Stack</h3>
+                
+                <div class="tech-categories-grid">
+                    <div class="tech-category-card">
+                        <h4>Languages & Frontend</h4>
+                        <div class="tech-icons-list">
+                            <div class="tech-icon-item"><i class="devicon-javascript-plain colored"></i> <span>JavaScript</span></div>
+                            <div class="tech-icon-item"><i class="devicon-html5-plain colored"></i> <span>HTML5</span></div>
+                            <div class="tech-icon-item"><i class="devicon-css3-plain colored"></i> <span>CSS3</span></div>
+                            <div class="tech-icon-item"><i class="devicon-react-original colored"></i> <span>React</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category-card">
+                        <h4>Backend & Systems</h4>
+                        <div class="tech-icons-list">
+                            <div class="tech-icon-item"><i class="devicon-java-plain colored"></i> <span>Java</span></div>
+                            <div class="tech-icon-item"><i class="devicon-python-plain colored"></i> <span>Python</span></div>
+                            <div class="tech-icon-item"><i class="devicon-maven-plain colored"></i> <span>Maven</span></div>
+                            <div class="tech-icon-item"><i class="devicon-gradle-plain colored"></i> <span>Gradle</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category-card">
+                        <h4>Tools & Workflow</h4>
+                        <div class="tech-icons-list">
+                            <div class="tech-icon-item"><i class="devicon-git-plain colored"></i> <span>Git</span></div>
+                            <div class="tech-icon-item"><i class="fab fa-discord" style="color: #5865F2;"></i> <span>Discord API</span></div>
+                            <div class="tech-icon-item"><i class="fas fa-code" style="color: var(--primary);"></i> <span>VS Code</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -344,70 +369,85 @@
 
         <h1 class="section-title" id="projects">Selected Projects</h1>
         
-        <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="plugin">Java Plugins</button>
-            <button class="filter-btn" data-filter="website">Web Applications</button>
-            <button class="filter-btn" data-filter="bot" onclick="event.stopImmediatePropagation(); showToast('error', 'Error', 'Currently, I am not working on new Discord bot projects. Please check back later for availability.');">Discord Bots</button>
-        </div>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="plugin">Java Plugins</button>
+                <button class="filter-btn" data-filter="mods">Java Mods</button>
+                <button class="filter-btn" data-filter="website">Web Applications</button>
+                <button class="filter-btn" data-filter="bot" onclick="event.stopImmediatePropagation(); showToast('error', 'Error', 'Currently, I am not working on new Discord bot projects. Please check back later for availability.');">Discord Bots</button>
+            </div>
 
-        <div class="projects-grid">
-            
-            <a href="https://modrinth.com/plugin/tomexpensive" target="_blank" rel="noopener noreferrer" class="project-card show" data-category="plugin">
-                <div class="project-icon-wrapper">
-                    <img src="img/logos/tomexpensive.png" alt="TomExpensive">
-                </div>
-                <div class="project-info">
-                    <h3>TomExpensive</h3>
-                    <p>A minecraft plugin that removes the "Too Expensive" message from the anvil using ProtocolLib and you can rename your tools/weapons with custom colors and stuff!</p>
-                    <div class="mini-stack"><span>Java</span><span>Maven</span></div>
-                </div>
-            </a>
+            <div class="projects-grid">
+                
+        <a href="https://modrinth.com/plugin/tomexpensive" target="_blank" rel="noopener noreferrer" class="project-card show card-tomexpensive" data-category="plugin">
+            <div class="project-icon-wrapper">
+                <img src="img/logos/tomexpensive.png" alt="TomExpensive">
+            </div>
+            <div class="project-info">
+                <h3>TomExpensive</h3>
+                <p>A minecraft plugin that removes the "Too Expensive" message from the anvil using ProtocolLib and you can rename your tools/weapons with custom colors and stuff!</p>
+                <div class="mini-stack"><span>Java</span><span>Maven</span></div>
+            </div>
+        </a>
 
-            <a href="https://modrinth.com/plugin/tomwarps" target="_blank" rel="noopener noreferrer" class="project-card show" data-category="plugin">
-                <div class="project-icon-wrapper">
-                    <img src="img/logos/tomwarps.png" alt="TomWarps">
-                </div>
-                <div class="project-info">
-                    <h3>TomWarps</h3>
-                    <p>A minecraft plugin that add player warps, spawn command and other warps thing like menus!</p>
-                    <div class="mini-stack"><span>Java</span><span>Maven</span></div>
-                </div>
-            </a>
+        <a href="https://modrinth.com/plugin/tomwarps" target="_blank" rel="noopener noreferrer" class="project-card show card-tomwarps" data-category="plugin">
+            <div class="project-icon-wrapper">
+                <img src="img/logos/tomwarps.png" alt="TomWarps">
+            </div>
+            <div class="project-info">
+                <h3>TomWarps</h3>
+                <p>A minecraft plugin that add player warps, spawn command and other warps thing like menus!</p>
+                <div class="mini-stack"><span>Java</span><span>Maven</span></div>
+            </div>
+        </a>
 
-            <a href="https://modrinth.com/plugin/tomdeathleaderboard" target="_blank" rel="noopener noreferrer" class="project-card show" data-category="plugin">
-                <div class="project-icon-wrapper">
-                    <img src="img/logos/tomdeathleaderboard.png" alt="TomDeathLeaderboard">
-                </div>
-                <div class="project-info">
-                    <h3>TomDeathLeaderboard</h3>
-                    <p>Just a minecraf plugin that add the death leaderboard to your mineraft server!</p>
-                    <div class="mini-stack"><span>Java</span><span>Maven</span></div>
-                </div>
-            </a>
+        <a href="https://modrinth.com/plugin/tomdeathleaderboard" target="_blank" rel="noopener noreferrer" class="project-card show card-tomexpensive" data-category="plugin">
+            <div class="project-icon-wrapper">
+                <img src="img/logos/tomdeathleaderboard.png" alt="TomDeathLeaderboard">
+            </div>
+            <div class="project-info">
+                <h3>TomDeathLeaderboard</h3>
+                <p>Just a minecraft plugin that add the death leaderboard to your minecraft server!</p>
+                <div class="mini-stack"><span>Java</span><span>Maven</span></div>
+            </div>
+        </a>
 
-            <a href="https://mcleader.thomasts.site" target="_blank" rel="noopener noreferrer" class="project-card show" data-category="website">
-                <div class="project-icon-wrapper">
-                    <img src="img/logos/mcleader.png" alt="MC Leaderboard">
-                </div>
-                <div class="project-info">
-                    <h3>Minecraft PVP Leaderboard</h3>
-                    <p>A leaderboard with a custom system for pvp with my friends!</p>
-                    <div class="mini-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-                </div>
-            </a>
+        <a href="https://mcleader.thomasts.site" target="_blank" rel="noopener noreferrer" class="project-card show card-mcleader" data-category="website">
+            <div class="project-icon-wrapper">
+                <img src="img/logos/mcleader.png" alt="MC Leaderboard">
+            </div>
+            <div class="project-info">
+                <h3>Minecraft PVP Leaderboard</h3>
+                <p>A leaderboard with a custom system for pvp with my friends!</p>
+                <div class="mini-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+            </div>
+        </a>
 
-            <a href="https://www.drinacos.site" target="_blank" rel="noopener noreferrer" class="project-card show" data-category="website">
-                <div class="project-icon-wrapper">
-                    <img src="img/logos/drinacos.png" alt="Portfolio Gallery">
+        <a href="https://www.drinacos.site" target="_blank" rel="noopener noreferrer" class="project-card show card-drinacos" data-category="website">
+            <div class="project-icon-wrapper">
+                <img src="img/logos/drinacos.png" alt="Portfolio Gallery">
+            </div>
+            <div class="project-info">
+                <h3>Drinacos's Official Website</h3>
+                <p>A good made portfolio for my friend Drina to show her work to the world go check it!</p>
+                <div class="mini-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="project-card show card-magesdestiny upcoming-project" data-category="mods">
+            <div class="project-icon-wrapper">
+                <img src="img/logos/magesdestiny.png" alt="Mages Destiny">
+            </div>
+            <div class="project-info">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <h3 style="margin: 0;">Mages Destiny</h3>
+                    <span style="background: #ff4081; color: white; padding: 3px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Coming Soon</span>
                 </div>
-                <div class="project-info">
-                    <h3>Drinacos's Official Website</h3>
-                    <p>A good made portofolio for my friend Drina to show her work to the world go check it!</p>
-                    <div class="mini-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-                </div>
-            </a>
-        </div>
+                <p>???</p>
+                <div class="mini-stack"><span>Java</span><span>Gradle</span></div>
+            </div>
+        </a>
+    </div>
 
         <h1 class="section-title" id="faqs">Frequently Asked Questions</h1>
 

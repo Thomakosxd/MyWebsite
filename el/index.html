@@ -187,7 +187,7 @@
                 Δες τα Projects μου
             </a>
 
-            <a href="../resume/resume_el.pdf" download class="hero-btn secondary">
+            <a onclick="showToast('error','Συγνώμη','Το ελληνικό βιογραφικό μου δεν είναι έτοιμο ακόμα!')" download class="hero-btn secondary">
                 <i class="fa-solid fa-file-arrow-down"></i>
                 Κατεβάσε το Βιογραφικό μου
             </a>
@@ -221,13 +221,38 @@
                 <p class="status-text">Να φτιάξω δικές μου δυναμικές ιστοσελίδες, projects💪</p>
             </div>
 
-            <div class="bento-item item-wide">
-                <h3>Γνωρίζω αυτές τις γλώσσες προγραμματισμού</h3>
-                <div class="skills-grid">
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">HTML5 / CSS3</span>
+           <div class="bento-item item-wide tech-stack-bento">
+                <h3>Γνωρίζω αυτές τις τεχνολογίες</h3>
+                
+                <div class="tech-categories-grid">
+                    <div class="tech-category-card">
+                        <h4>Γλώσσες & Frontend</h4>
+                        <div class="tech-icons-list">
+                            <div class="tech-icon-item"><i class="devicon-javascript-plain colored"></i> <span>JavaScript</span></div>
+                            <div class="tech-icon-item"><i class="devicon-html5-plain colored"></i> <span>HTML5</span></div>
+                            <div class="tech-icon-item"><i class="devicon-css3-plain colored"></i> <span>CSS3</span></div>
+                            <div class="tech-icon-item"><i class="devicon-react-original colored"></i> <span>React</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category-card">
+                        <h4>Backend & Συστήματα</h4>
+                        <div class="tech-icons-list">
+                            <div class="tech-icon-item"><i class="devicon-java-plain colored"></i> <span>Java</span></div>
+                            <div class="tech-icon-item"><i class="devicon-python-plain colored"></i> <span>Python</span></div>
+                            <div class="tech-icon-item"><i class="devicon-maven-plain colored"></i> <span>Maven</span></div>
+                            <div class="tech-icon-item"><i class="devicon-gradle-plain colored"></i> <span>Gradle</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category-card">
+                        <h4>Εργαλεία & Αλλα</h4>
+                        <div class="tech-icons-list">
+                            <div class="tech-icon-item"><i class="devicon-git-plain colored"></i> <span>Git</span></div>
+                            <div class="tech-icon-item"><i class="fab fa-discord" style="color: #5865F2;"></i> <span>Discord API</span></div>
+                            <div class="tech-icon-item"><i class="fas fa-code" style="color: var(--primary);"></i> <span>VS Code</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
