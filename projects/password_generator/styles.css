@@ -1,0 +1,107 @@
+body {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #162447;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    width: 350px;
+}
+
+/* Header Navigation Styling */
+.header-nav {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.nav-btn {
+    background-color: transparent;
+    color: #a0aec0;
+    border: 1px solid #4a5568;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    width: auto; /* Overrides the main button block width */
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: #1f4068;
+    color: #ffffff;
+    border-color: #e43f5a;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #e43f5a;
+}
+
+.result-container {
+    background-color: #1f4068;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#password-display {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    width: 100%;
+    outline: none;
+    text-align: center;
+}
+
+.settings {
+    margin-bottom: 20px;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.setting label {
+    font-size: 14px;
+}
+
+.setting input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+}
+
+/* Primary Action Button */
+#generate-btn {
+    background-color: #e43f5a;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+#generate-btn:hover {
+    background-color: #ff4a68;
+}

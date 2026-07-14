@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-nav">
+            <button id="back-btn" class="nav-btn">← Go Back</button>
+        </div>
+
+        <h2>Password Generator</h2>
+        
+        <div class="result-container">
+            <input type="text" id="password-display" readonly placeholder="Your password...">
+        </div>
+
+        <div class="settings">
+            <div class="setting">
+                <label>Password Length (8-20):</label>
+                <input type="number" id="length" min="8" max="20" value="12">
+            </div>
+            <div class="setting">
+                <label>Uppercase Letters (A-Z)</label>
+                <input type="checkbox" id="uppercase" checked>
+            </div>
+            <div class="setting">
+                <label>Lowercase Letters (a-z)</label>
+                <input type="checkbox" id="lowercase" checked>
+            </div>
+            <div class="setting">
+                <label>Numbers (0-9)</label>
+                <input type="checkbox" id="numbers" checked>
+            </div>
+            <div class="setting">
+                <label>Symbols (!@#$%)</label>
+                <input type="checkbox" id="symbols" checked>
+            </div>
+        </div>
+
+        <button id="generate-btn">Generate Password</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
