@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Thomas Tsolakis</title>
+
+    <meta name="description" content="All projects by Thomas Tsolakis, including Minecraft plugins, mods, websites and more.">
+    <meta name="author" content="Thomas Tsolakis">
+    <meta name="creator" content="Thomas Tsolakis">
+    <meta name="copyright" content="Thomas Tsolakis">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#030305">
+    <meta name="color-scheme" content="dark">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://thomasts.site/projects/index.html">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <!-- Mobile -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Thomas Tsolakis">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- SEO -->
+    <meta name="keywords" content="Thomas Tsolakis, Projects, Software Developer, Portfolio, Minecraft Plugins, Minecraft Mods, Web Development, Discord Bots">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Thomas Tsolakis">
+    <meta property="og:title" content="Projects | Thomas Tsolakis">
+    <meta property="og:description" content="All projects by Thomas Tsolakis, including Minecraft plugins, mods, websites and more.">
+    <meta property="og:url" content="https://thomasts.site/projects.html">
+    <meta property="og:image" content="https://thomasts.site/img/hero.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Thomas Tsolakis Projects">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects | Thomas Tsolakis">
+    <meta name="twitter:description" content="All projects by Thomas Tsolakis, including Minecraft plugins, mods, websites and more.">
+    <meta name="twitter:image" content="https://thomasts.site/img/hero.webp">
+    <meta name="twitter:image:alt" content="Thomas Tsolakis Projects">
+    <meta name="twitter:url" content="https://thomasts.site/projects.html">
+    <meta name="twitter:creator" content="@thomakosdevs">
+    <meta name="twitter:site" content="@thomakosdevs">
+
+    <!-- Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo"><a href="/"><img src="../img/logo.png" alt="Thomas Logo"></a></div>
+        <ul id="nav-links">
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#journey">Journey</a></li>
+            <li><a href="../projects/" class="active">Projects</a></li>
+            <li><a href="/#faqs">FAQs</a></li>
+            <li><a href="/#contact-me">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="/el/projects/" class="lang-switch" hreflang="el" aria-label="Δες τη σελίδα στα Ελληνικά">ΕΛ</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container" id="projects-main">
+
+        <h1 class="section-title" id="projects">All Projects</h1>
+
+        <div class="project-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="project-search" class="project-search-input" placeholder="Search projects...">
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="plugin">Java Plugins</button>
+            <button class="filter-btn" data-filter="mods">Java Mods</button>
+            <button class="filter-btn" data-filter="website">Web Applications</button>
+            <button class="filter-btn" data-filter="bot" onclick="event.stopImmediatePropagation(); showToast('error', 'Error', 'Currently, I am not working on new Discord bot projects. Please check back later for availability.');">Discord Bots</button>
+        </div>
+
+        <div class="projects-grid">
+
+            <a href="https://modrinth.com/plugin/tomexpensive" target="_blank" rel="noopener noreferrer" class="project-card show card-tomexpensive" data-category="plugin">
+                <div class="project-icon-wrapper">
+                    <img src="../img/logos/tomexpensive.png" alt="TomExpensive">
+                </div>
+                <div class="project-info">
+                    <h3>TomExpensive</h3>
+                    <p>A minecraft plugin that removes the "Too Expensive" message from the anvil using ProtocolLib and you can rename your tools/weapons with custom colors and stuff!</p>
+                    <div class="mini-stack"><span>Java</span><span>Maven</span></div>
+                </div>
+            </a>
+
+            <a href="https://modrinth.com/plugin/tomwarps" target="_blank" rel="noopener noreferrer" class="project-card show card-tomwarps" data-category="plugin">
+                <div class="project-icon-wrapper">
+                    <img src="../img/logos/tomwarps.png" alt="TomWarps">
+                </div>
+                <div class="project-info">
+                    <h3>TomWarps</h3>
+                    <p>A minecraft plugin that add player warps, spawn command and other warps thing like menus!</p>
+                    <div class="mini-stack"><span>Java</span><span>Maven</span></div>
+                </div>
+            </a>
+
+            <a href="https://modrinth.com/plugin/tomdeathleaderboard" target="_blank" rel="noopener noreferrer" class="project-card show card-tomexpensive" data-category="plugin">
+                <div class="project-icon-wrapper">
+                    <img src="../img/logos/tomdeathleaderboard.png" alt="TomDeathLeaderboard">
+                </div>
+                <div class="project-info">
+                    <h3>TomDeathLeaderboard</h3>
+                    <p>Just a minecraft plugin that add the death leaderboard to your minecraft server!</p>
+                    <div class="mini-stack"><span>Java</span><span>Maven</span></div>
+                </div>
+            </a>
+
+            <a href="https://mcleader.thomasts.site" target="_blank" rel="noopener noreferrer" class="project-card show card-mcleader" data-category="website">
+                <div class="project-icon-wrapper">
+                    <img src="../img/logos/mcleader.png" alt="MC Leaderboard">
+                </div>
+                <div class="project-info">
+                    <h3>Minecraft PVP Leaderboard</h3>
+                    <p>A leaderboard with a custom system for pvp with my friends!</p>
+                    <div class="mini-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                </div>
+            </a>
+
+            <a href="https://www.drinacos.site" target="_blank" rel="noopener noreferrer" class="project-card show card-drinacos" data-category="website">
+                <div class="project-icon-wrapper">
+                    <img src="../img/logos/drinacos.png" alt="Portfolio Gallery">
+                </div>
+                <div class="project-info">
+                    <h3>Drinacos's Official Website</h3>
+                    <p>A good made portfolio for my friend Drina to show her work to the world go check it!</p>
+                    <div class="mini-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                </div>
+            </a>
+
+            <a href="/projects/kda_calculator/" class="project-card show card-kdacalculator" data-category="website">
+                <div class="project-icon-wrapper">
+                    <img src="../img/logos/kdacalculator.png" alt="KDA Calculator">
+                </div>
+                <div class="project-info">
+                    <h3>KDA Calculator</h3>
+                    <p>A simple tool that calculates your KDA (Kill/Death/Assist) ratio for your favorite games, fast and clean!</p>
+                    <div class="mini-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                </div>
+            </a>
+
+            <a href="javascript:void(0)" class="project-card show card-magesdestiny upcoming-project" data-category="mods">
+                <div class="project-icon-wrapper">
+                    <img src="../img/logos/magesdestiny.png" alt="Mages Destiny">
+                </div>
+                <div class="project-info">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <h3 style="margin: 0;">Mages Destiny</h3>
+                        <span style="background: #ff4081; color: white; padding: 3px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Coming Soon</span>
+                    </div>
+                    <p>???</p>
+                    <div class="mini-stack"><span>Java</span><span>Gradle</span></div>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="modern-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-left">
+
+                <p class="footer-brand">
+                    Thomas Tsolakis
+                </p>
+
+                <p class="footer-title">
+                    Software Developer • IT Student
+                </p>
+
+                <p class="footer-desc">
+                    Building modern websites, backend systems, Discord bots and digital experiences.
+                </p>
+
+                <p class="footer-status">
+                    Available for freelance projects and collaborations.
+                </p>
+
+            </div>
+
+            <div class="footer-right">
+
+                <div class="social-group">
+
+                    <a href="https://github.com/Thomakosxd" target="_blank" rel="noopener noreferrer" class="social-tile github-tile">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/thomakosdevs" target="_blank" rel="noopener noreferrer" class="social-tile instagram-tile">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@thomakosdevs" target="_blank" rel="noopener noreferrer" class="social-tile tiktok-tile">
+                        <i class="fab fa-tiktok"></i>
+                        <span>TikTok</span>
+                    </a>
+
+                    <a href="https://www.youtube.com/@thomakosdevs" target="_blank" rel="noopener noreferrer" class="social-tile youtube-tile">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/thomas-tsolakis-8341843b0/" target="_blank" rel="noopener noreferrer" class="social-tile linkedin-tile">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2026 Thomas Tsolakis. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
+    <script src="../js/filters.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/observer.js"></script>
+    <script src="../js/toast.js"></script>
+    <script src="../js/scroll-top.js"></script>
+    <script src="../js/main.js"></script>
+
+    <div id="toast" class="toast">
+
+        <div class="toast-icon">
+            <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div class="toast-content">
+            <h4 id="toastTitle">Success</h4>
+            <p id="toastMessage">Message sent successfully.</p>
+        </div>
+
+    </div>
+
+    <button id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+</body>
+</html>

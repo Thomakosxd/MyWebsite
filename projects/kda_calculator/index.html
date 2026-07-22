@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KDA Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <div class="container">
+    <div class="header-nav">
+        <button id="back-btn" class="nav-btn">← Go Back</button>
+    </div>
+    <h1>KDA Calculator</h1>
+    <p>KDA ratio is a measure of the total number of kills and assists relative to the number of deaths that a player accrues in a video game. The formula to find KDA ratio is:</p>
+    <p>KDA = (kills + assists) / deaths</p>
+    <p>To find the KDA ratio, simply fill in the values below and then click the "Calculate" button.</p>
+    <div class="input-group">
+      <label for="kills">Total Kills</label>
+      <div class="input-field">
+        <input type="number" id="kills" value=" ">
+      </div>
+    </div>
+    <div class="input-group">
+      <label for="assists">Total Assists</label>
+      <div class="input-field">
+        <input type="number" id="assists" value=" ">
+      </div>
+    </div>
+    <div class="input-group">
+      <label for="deaths">Total Deaths</label>
+      <div class="input-field">
+        <input type="number" id="deaths" value=" ">
+      </div>
+    </div>
+    <button id="calculate">CALCULATE</button>
+    <p id="result"></p>
+  </div>
+  <footer>
+    <p>I made this as a mini project to help me and my friends to calculate our KDA fast :) </p>
+    <em>Thomas Tsolakis</em>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

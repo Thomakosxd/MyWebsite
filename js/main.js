@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    typeEffect();
+    if (typeof typeEffect === "function") typeEffect();
 
-    initFilters();
+    if (typeof initFilters === "function") initFilters();
 
-    initNavToggle();
+    if (typeof initNavToggle === "function") initNavToggle();
 
-    initTimelineProgress();
+    if (typeof initTimelineProgress === "function") initTimelineProgress();
 
-    initScrollTopButton();
+    if (typeof initScrollTopButton === "function") initScrollTopButton();
 
-    initFAQ();
+    if (typeof initFAQ === "function") initFAQ();
 
-    initContactForm();
+    if (typeof initContactForm === "function") initContactForm();
 
     document
         .querySelectorAll(".bento-item, .project-card, .timeline-year")
