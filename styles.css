@@ -1839,7 +1839,7 @@ nav a:hover {
     grid-template-columns: var(--tl-col1) var(--tl-col2) 1fr;
     column-gap: var(--tl-gap);
     align-items: center;
-    padding: 40px 0;
+    padding: 15px 0;
   }
 
   .timeline-year:first-child {
