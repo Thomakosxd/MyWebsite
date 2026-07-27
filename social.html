@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Socials | Thomas Tsolakis</title>
+
+    <meta name="description" content="Connect with Thomas Tsolakis on social media, developer platforms, and community channels.">
+    <meta name="author" content="Thomas Tsolakis">
+    <meta name="theme-color" content="#030305">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="canonical" href="https://thomasts.site/social.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .social-page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(var(--blur-md));
+            -webkit-backdrop-filter: blur(var(--blur-md));
+            border-radius: var(--radius-lg);
+            padding: 40px 28px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .social-avatar {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 3px;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+        }
+
+        .social-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--bg);
+        }
+
+        .social-card h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .social-card p {
+            color: var(--text-muted-1);
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+
+        .social-links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .social-link-btn {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-med);
+        }
+
+        .social-link-btn i.left-icon {
+            font-size: 1.3rem;
+            width: 32px;
+            text-align: center;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-link-btn span {
+            flex-grow: 1;
+            text-align: left;
+            margin-left: 12px;
+            font-size: 0.95rem;
+        }
+
+        .social-link-btn i.arrow-icon {
+            font-size: 0.85rem;
+            opacity: 0.4;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hover states */
+        .social-link-btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.15);
+        }
+
+        .social-link-btn:hover i.left-icon {
+            color: var(--primary);
+            transform: scale(1.15);
+        }
+
+        .social-link-btn:hover i.arrow-icon {
+            opacity: 1;
+            transform: translateX(4px);
+            color: var(--primary);
+        }
+
+        /* Custom Hover Colors per Social */
+        .social-link-btn.instagram:hover i.left-icon { color: #e1306c; }
+        .social-link-btn.tiktok:hover i.left-icon { color: #ff0050; }
+        .social-link-btn.youtube:hover i.left-icon { color: #ff0000; }
+        .social-link-btn.linkedin:hover i.left-icon { color: #0a66c2; }
+        .social-link-btn.github:hover i.left-icon { color: #ffffff; }
+        .social-link-btn.discord:hover i.left-icon { color: #5865f2; }
+
+        .back-home {
+            margin-top: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted-2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+    </style>
+
+</head>
+<body>
+    <main class="social-page-wrapper">
+        <div class="social-card">
+            
+            <div class="social-avatar">
+                <img src="img/logo.png" alt="Thomas Tsolakis">
+            </div>
+
+            <h1>Thomas Tsolakis</h1>
+            <p>Software Developer & Content Creator</p>
+
+            <div class="social-links-grid">
+                
+                <a href="https://www.instagram.com/thomakosdevs" target="_blank" rel="noopener noreferrer" class="social-link-btn instagram">
+                    <i class="fab fa-instagram left-icon"></i>
+                    <span>Instagram</span>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@thomakosdevs" target="_blank" rel="noopener noreferrer" class="social-link-btn tiktok">
+                    <i class="fab fa-tiktok left-icon"></i>
+                    <span>TikTok</span>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                </a>
+
+                <a href="https://www.youtube.com/@thomakosdevs" target="_blank" rel="noopener noreferrer" class="social-link-btn youtube">
+                    <i class="fab fa-youtube left-icon"></i>
+                    <span>YouTube</span>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/thomas-tsolakis/" target="_blank" rel="noopener noreferrer" class="social-link-btn linkedin">
+                    <i class="fab fa-linkedin left-icon"></i>
+                    <span>LinkedIn</span>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                </a>
+
+                <a href="https://github.com/Thomakosxd" target="_blank" rel="noopener noreferrer" class="social-link-btn github">
+                    <i class="fab fa-github left-icon"></i>
+                    <span>GitHub</span>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                </a>
+
+                <a href="https://discord.gg/YOUR-DISCORD-LINK" target="_blank" rel="noopener noreferrer" class="social-link-btn discord">
+                    <i class="fab fa-discord left-icon"></i>
+                    <span>Discord Server</span>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                </a>
+
+            </div>
+
+            <a href="index.html" class="back-home">
+                <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>
