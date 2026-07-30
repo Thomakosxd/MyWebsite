@@ -1023,6 +1023,31 @@ nav a:hover {
 
 /* Project card accent variants */
 
+.card-tomdeathleaderboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(0, 255, 128, 0.15), transparent 50%);
+  z-index: var(--z-card-glow);
+  pointer-events: none;
+}
+
+.card-tomdeathleaderboard:hover {
+  border-color: #00ff80;
+  box-shadow: 0 15px 40px rgba(0, 255, 128, 0.25);
+}
+
+.card-tomdeathleaderboard:hover .project-icon-wrapper {
+  border-color: #00ff80;
+  background: rgba(0, 255, 128, 0.1);
+}
+
+.card-tomdeathleaderboard:hover .mini-stack span {
+  border-color: rgba(0, 255, 128, 0.4);
+  color: #00ff80;
+  background: rgba(0, 255, 128, 0.05);
+}
+
 .card-tomexpensive::before {
   content: '';
   position: absolute;
@@ -1538,6 +1563,12 @@ nav a:hover {
   border-color: #0a66c2;
   color: #0a66c2;
   box-shadow: 0 10px 30px rgba(10, 102, 194, 0.25);
+}
+
+.discord-tile:hover {
+  border-color: #5865f2;
+  color: #5865f2;
+  box-shadow: 0 10px 30px rgba(88, 101, 242, 0.25);
 }
 
 .github-tile:hover i,
