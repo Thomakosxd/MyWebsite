@@ -187,6 +187,7 @@ nav .logo:hover img {
 }
 
 nav ul {
+  margin: 0 auto;
   display: flex;
   list-style: none;
   gap: 25px;
