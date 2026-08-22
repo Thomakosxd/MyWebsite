@@ -1321,33 +1321,6 @@ nav a:hover {
   line-height: 1.6;
 }
 
-.contact-email {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 0 0 30px;
-  color: var(--text-muted-2);
-  font-size: 0.95rem;
-}
-
-.contact-email i {
-  color: var(--primary);
-}
-
-.contact-email a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition-fast);
-}
-
-.contact-email a:hover {
-  text-decoration: underline;
-  color: #fff;
-}
-
 .input-group {
   display: flex;
   flex-direction: column;
@@ -1428,44 +1401,14 @@ nav a:hover {
     margin-top:40px;
 }
 
-.contact-info-item{
-    display:flex;
-    gap:14px;
-    align-items:flex-start;
-}
-
-.contact-info-item i{
-    color:var(--primary);
-    font-size:1.2rem;
-    margin-top:4px;
-}
-
-.contact-info-item h4{
-    margin:0 0 6px;
-    font-size:1rem;
-    color:var(--white);
-}
-
-.contact-info-item p,
-.contact-info-item a{
-    margin:0;
-    color:var(--text-secondary);
-    line-height:1.5;
-}
-
-.contact-info-item a{
-    color:var(--primary);
-    text-decoration:none;
-}
-
 /* ==========================================================
    FOOTER
    ========================================================== */
 
 .modern-footer {
   position: relative;
-  margin-top: 150px;
-  padding: 80px 0 40px;
+  margin-top: 10px;
+  padding: 40px 0 40px;
   background: linear-gradient(to top, rgba(0, 229, 255, 0.05), transparent);
   border-top: 1px solid var(--glass-border);
   -webkit-backdrop-filter: blur(var(--blur-lg));
@@ -1477,28 +1420,11 @@ nav a:hover {
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 50px;
 }
 
-.footer-left {
-  max-width: 350px;
-}
-
-.footer-logo {
-  height: 50px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px var(--primary));
-  transition: var(--transition-fast);
-}
-
-.footer-left p {
-  font-size: 0.95rem;
-  color: var(--text);
-  opacity: 0.6;
-  line-height: 1.6;
-}
 
 .footer-right {
   display: flex;
