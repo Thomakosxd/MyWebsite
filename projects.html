@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="view-transition" content="same-origin">
     <title>Projects | Thomas</title>
-    <meta name="description" content="A collection of Minecraft Java plugins and web applications built by Thomas, software developer and IT student.">
+    <meta name="description" content="A collection of Minecraft Java plugins, web applications, and Discord bots built by Thomas, software developer and IT student.">
     <meta name="author" content="Thomas">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -16,11 +16,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="shortcut icon" href="img/favicon.ico">
-    <meta name="keywords" content="Thomas, Projects, Minecraft Plugins, Java, Web Applications, Software Developer, Portfolio">
+    <meta name="keywords" content="Thomas, Projects, Minecraft Plugins, Java, Web Applications, Discord Bot, Software Developer, Portfolio">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Thomas">
     <meta property="og:title" content="Projects | Thomas">
-    <meta property="og:description" content="A collection of Minecraft Java plugins and web applications built by Thomas.">
+    <meta property="og:description" content="A collection of Minecraft Java plugins, web applications, and Discord bots built by Thomas.">
     <meta property="og:url" content="https://thomasts.site/projects.html">
     <meta property="og:image" content="https://thomasts.site/img/hero.webp">
     <meta property="og:image:width" content="1200">
@@ -29,7 +29,7 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Projects | Thomas">
-    <meta name="twitter:description" content="A collection of Minecraft Java plugins and web applications built by Thomas.">
+    <meta name="twitter:description" content="A collection of Minecraft Java plugins, web applications, and Discord bots built by Thomas.">
     <meta name="twitter:image" content="https://thomasts.site/img/hero.webp">
     <meta name="twitter:image:alt" content="Thomas Portfolio">
     <meta name="twitter:url" content="https://thomasts.site/projects.html">
@@ -63,10 +63,13 @@
         <div class="filter-container">
             <button class="filter-btn active" data-filter="all">All Projects</button>
             <button class="filter-btn" data-filter="plugin">Java Plugins</button>
+            <button class="filter-btn" data-filter="mod">Java Mods</button>
             <button class="filter-btn" data-filter="website">Web Applications</button>
+            <button class="filter-btn" data-filter="bot">Discord Bots</button>
         </div>
         <div class="projects-grid">
-            <a href="https://modrinth.com/plugin/tomexpensive" target="_blank" class="project-card" data-category="plugin">
+            <!-- TomExpensive -->
+            <div class="project-card" data-category="plugin">
                 <div class="project-icon-wrapper">
                     <img src="img/logos/tomexpensive.png" alt="TomExpensive">
                 </div>
@@ -77,9 +80,15 @@
                         <span class="tag">Java</span>
                         <span class="tag">PaperMC</span>
                     </div>
+                    <div class="card-buttons">
+                        <a href="https://modrinth.com/plugin/tomexpensive" target="_blank" class="card-btn primary-btn"><i class="fa-solid fa-external-link"></i> Visit</a>
+                        <a href="https://github.com/Thomakosxd/TomExpensive" target="_blank" class="card-btn secondary-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
                 </div>
-            </a>
-            <a href="https://modrinth.com/plugin/tomwarps" target="_blank" class="project-card" data-category="plugin">
+            </div>
+
+            <!-- TomWarps -->
+            <div class="project-card" data-category="plugin">
                 <div class="project-icon-wrapper">
                     <img src="img/logos/tomwarps.png" alt="TomWarps">
                 </div>
@@ -90,9 +99,15 @@
                         <span class="tag">Java</span>
                         <span class="tag">PaperMC</span>
                     </div>
+                    <div class="card-buttons">
+                        <a href="https://modrinth.com/plugin/tomwarps" target="_blank" class="card-btn primary-btn"><i class="fa-solid fa-external-link"></i> Visit</a>
+                        <a href="https://github.com/Thomakosxd/TomWarps" target="_blank" class="card-btn secondary-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
                 </div>
-            </a>
-            <a href="https://modrinth.com/plugin/tomdeathleaderboard" target="_blank" class="project-card" data-category="plugin">
+            </div>
+
+            <!-- TomDeathLeaderboard -->
+            <div class="project-card" data-category="plugin">
                 <div class="project-icon-wrapper">
                     <img src="img/logos/tomdeathleaderboard.png" alt="TomDeathLeaderboard">
                 </div>
@@ -103,9 +118,15 @@
                         <span class="tag">Java</span>
                         <span class="tag">PaperMC</span>
                     </div>
+                    <div class="card-buttons">
+                        <a href="https://modrinth.com/plugin/tomdeathleaderboard" target="_blank" class="card-btn primary-btn"><i class="fa-solid fa-external-link"></i> Visit</a>
+                        <a href="https://github.com/Thomakosxd/TomDeathLeaderboard" target="_blank" class="card-btn secondary-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
                 </div>
-            </a>
-            <a href="https://mcleader.thomasts.site" target="_blank" class="project-card" data-category="website">
+            </div>
+
+            <!-- Minecraft PVP Leaderboard -->
+            <div class="project-card" data-category="website">
                 <div class="project-icon-wrapper">
                     <img src="img/logos/mcleader.png" alt="MC Leaderboard">
                 </div>
@@ -117,9 +138,15 @@
                         <span class="tag">CSS3</span>
                         <span class="tag">JavaScript</span>
                     </div>
+                    <div class="card-buttons">
+                        <a href="https://mcleader.thomasts.site" target="_blank" class="card-btn primary-btn"><i class="fa-solid fa-external-link"></i> Visit</a>
+                        <a href="javascript:void(0)" target="_blank" class="card-btn secondary-btn disabled"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
                 </div>
-            </a>
-            <a href="https://www.drinacos.site" target="_blank" class="project-card" data-category="website">
+            </div>
+
+            <!-- Drinacos Portfolio -->
+            <div class="project-card" data-category="website">
                 <div class="project-icon-wrapper">
                     <img src="img/logos/drinacos.png" alt="Drinacos Portfolio">
                 </div>
@@ -131,9 +158,34 @@
                         <span class="tag">CSS3</span>
                         <span class="tag">JavaScript</span>
                     </div>
+                    <div class="card-buttons">
+                        <a href="https://www.drinacos.site" target="_blank" class="card-btn primary-btn"><i class="fa-solid fa-external-link"></i> Visit</a>
+                        <a href="javascript:void(0)" target="_blank" class="card-btn secondary-btn disabled"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
                 </div>
-            </a>
-            <a href="javascript:void(0)" class="project-card" data-category="plugin">
+            </div>
+
+            <!-- Wolly Discord Bot -->
+            <div class="project-card" data-category="bot">
+                <div class="project-icon-wrapper">
+                    <img src="img/logos/wolly.png" alt="Wolly Bot">
+                </div>
+                <div class="project-info">
+                    <h3>Wolly</h3>
+                    <p>Never miss a bump again. Wolly reminds you when it's time, tracks every invite, and sets up in minutes. Simple, friendly, and it just works.</p>
+                    <div class="card-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Discord.py</span>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="https://discord.com/oauth2/authorize?client_id=1342933780243157152" target="_blank" class="card-btn primary-btn"><i class="fa-solid fa-plus"></i> Invite</a>
+                        <a href="javascript:void(0)" target="_blank" class="card-btn secondary-btn disabled"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mages Destiny -->
+            <div class="project-card" data-category="mod">
                 <div class="project-icon-wrapper">
                     <img src="img/logos/magesdestiny.png" alt="Mages Destiny">
                 </div>
@@ -147,8 +199,12 @@
                         <span class="tag">???</span>
                         <span class="tag">???</span>
                     </div>
+                    <div class="card-buttons">
+                        <a href="javascript:void(0)" class="card-btn primary-btn disabled"><i class="fa-solid fa-external-link"></i> Visit</a>
+                        <a href="javascript:void(0)" target="_blank" class="card-btn secondary-btn disabled"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
     </main>
     <footer class="modern-footer">
