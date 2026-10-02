@@ -119,23 +119,52 @@ body::after {
   opacity: 0.2;
 }
 
+/* ---------- Page transitions ----------
+   1) Το nav μένει ακίνητο ανάμεσα στις σελίδες
+   2) Η παλιά σελίδα φεύγει προς τα πάνω (fade + blur)
+   3) Το νέο περιεχόμενο ανεβαίνει από κάτω και "καθαρίζει" από το blur */
+
 main.container {
-  animation: pageEnter 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: pageEnter 0.65s 0.1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   opacity: 0;
-  transform: translateY(30px) scale(0.98);
+  transform: translateY(28px);
+  filter: blur(6px);
 }
 
 @keyframes pageEnter {
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 1; transform: none; filter: none; }
 }
 
 @view-transition {
   navigation: auto;
 }
 
-::view-transition-old(root),
+nav { view-transition-name: site-nav; }
+
+::view-transition-old(root) {
+  z-index: 2;
+  mix-blend-mode: normal;
+  animation: pageExit 0.28s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
 ::view-transition-new(root) {
-  animation-duration: 0.4s;
+  mix-blend-mode: normal;
+  animation: none;
+}
+
+@keyframes pageExit {
+  to { opacity: 0; transform: translateY(-14px); filter: blur(4px); }
+}
+
+::view-transition-group(site-nav) {
+  animation-duration: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+  main.container { animation: none; opacity: 1; transform: none; filter: none; }
 }
 
 nav {
